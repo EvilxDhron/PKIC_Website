@@ -1,9 +1,12 @@
 :root {
   --default-padding: 1.2rem;
   --color-primary: #ffffff;
-  --color-text-primary: #0b2247;
+  /* --color-text-primary: #0b2247; */
   --color-text-secondary: #bfd3f2;
   --color-text-tertiary: #5b6b82;
+  --color-brand: #0b2247;
+  --color-accent: #f4a81d;
+  --color-whatsapp: #0f766e;
   --font-primary: "Poppins", sans-serif;
   --font-secondary: "Inter", sans-serif;
 }
@@ -17,15 +20,41 @@
 html,
 body {
   width: 100%;
-  height: 100%;
-  overflow: hidden;
 }
+
+/* Useful classes for later use */
+
+.btn {
+  padding: 1rem 1.7rem;
+  border-radius: 999px;
+  font: 600 1rem var(--font-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.btn--primary {
+  background: var(--color-accent);
+  color: var(--color-brand);
+  border: 0;
+}
+.btn--outline {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #8b9dbb;
+}
+.btn--whatsapp {
+  background: var(--color-whatsapp);
+  color: #fff;
+  border: 0;
+}
+
+/* ------------------------- */
 
 .header {
   width: 100%;
   padding: 0.7rem var(--default-padding);
   background-color: var(--color-primary);
-  position: relative;
 }
 
 .header .navbar {
@@ -36,6 +65,9 @@ body {
 }
 
 .navbar {
+  display: flex;
+  align-items: center;
+
   .logo__container {
     display: flex;
     align-items: center;
@@ -49,7 +81,7 @@ body {
       font-size: 1.2rem;
       font-family: var(--font-primary);
       font-weight: bold;
-      color: #0b2247;
+      color: var(--color-brand);
     }
   }
 
@@ -58,7 +90,7 @@ body {
     background-color: transparent;
 
     .hamburger__btn__img {
-      width: 50px;
+      width: 40px;
     }
   }
 }
@@ -68,7 +100,7 @@ body {
   height: 100dvh;
   background-color: rgba(0, 0, 0, 0.333);
   backdrop-filter: blur(2px);
-  position: absolute;
+  position: fixed;
   inset: 0;
   z-index: 1;
   opacity: 1;
@@ -78,11 +110,11 @@ body {
 }
 
 .sidebar {
-  width: 80vw;
+  width: min(80vw, 24rem);
   height: 100dvh;
   display: flex;
   flex-direction: column;
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   z-index: 2;
@@ -90,7 +122,6 @@ body {
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
   overflow: hidden;
-  border: 2px solid var(--color-text-primary);
   opacity: 1;
   transform: translateX(0);
   transition:
@@ -100,7 +131,7 @@ body {
 
 .sidebar__header {
   width: 100%;
-  background-color: var(--color-text-primary);
+  background-color: var(--color-brand);
   padding: 1rem;
   display: flex;
   justify-content: space-between;
@@ -166,7 +197,7 @@ body {
   }
 
   &::-webkit-scrollbar-thumb {
-    background: #f4a81d;
+    background: var(--color-accent);
     border-radius: 10px;
   }
 }
@@ -186,18 +217,18 @@ body {
     grid-template-columns: 1fr max-content;
     align-items: center;
     padding: 0.7rem 1rem;
-    border-radius: 20px;
+    border-radius: 14px;
 
     .link__title {
       font-family: var(--font-primary);
-      color: var(--color-text-primary);
+      color: var(--color-brand);
       font-weight: 600;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
 
     .link__description {
       grid-column: 1/2;
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       font-family: var(--font-secondary);
       color: var(--color-text-tertiary);
     }
@@ -220,12 +251,12 @@ body {
     background-color: #e4f3f0;
     position: relative;
 
-    ::before {
+    &::before {
       content: "";
       position: absolute;
       width: 4px;
       height: 50%;
-      background-color: #f4a81d;
+      background-color: var(--color-accent);
       top: 50%;
       left: 0;
       border-radius: 10px;
@@ -237,7 +268,7 @@ body {
     }
 
     .rightArrow {
-      background-color: #f4a81d;
+      background-color: var(--color-accent);
       opacity: 1;
     }
   }
@@ -245,7 +276,7 @@ body {
 
 .sidebar__footer {
   width: 100%;
-  background-color: var(--color-text-primary);
+  background-color: var(--color-brand);
   padding: 1.5rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -259,7 +290,7 @@ body {
     text-transform: uppercase;
     font-size: 0.7rem;
     font-weight: 800;
-    color: #f4a81d;
+    color: var(--color-accent);
     padding: 0.3rem 1rem 0.3rem 1.7rem;
     position: relative;
     background-color: #293d5d;
@@ -271,7 +302,7 @@ body {
       content: "";
       width: 8px;
       height: 8px;
-      background-color: #f4a81d;
+      background-color: var(--color-accent);
       position: absolute;
       border-radius: 50%;
       left: 7%;
@@ -282,17 +313,17 @@ body {
 
   .apply__btn {
     grid-column: 1/3;
-    color: var(--color-text-primary);
+    color: var(--color-brand);
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 700;
     font-family: var(--font-primary);
-    background-color: #f4a81d;
+    background-color: var(--color-accent);
     border: none;
     padding: 1rem 1.7rem;
     border-radius: 50px;
   }
 
-  .call__btn {
+  .call__link {
     color: var(--color-primary);
     padding: 1rem 1.7rem;
     border: 2px solid #8b9dbb;
@@ -305,16 +336,17 @@ body {
     align-items: center;
     justify-content: center;
     gap: 8px;
+    text-decoration: none;
 
     img {
       width: 20px;
     }
   }
 
-  .whatsapp__btn {
+  .whatsapp__link {
     color: var(--color-primary);
     padding: 1rem;
-    background-color: #0f766e;
+    background-color: var(--color-whatsapp);
     border: none;
     border-radius: 50px;
     font-size: 1rem;
@@ -323,10 +355,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 6px;
+    text-decoration: none;
 
     img {
-      width: 20px;
+      width: 25px;
     }
   }
 
@@ -366,7 +399,7 @@ body {
 }
 
 .main {
+  display: none;
   width: 100%;
-  height: 100%;
   background-color: #0f766e;
 }
