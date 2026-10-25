@@ -4,6 +4,7 @@
   /* --color-text-primary: #0b2247; */
   --color-text-secondary: #bfd3f2;
   --color-text-tertiary: #5b6b82;
+  --color-para: #4a5a72;
   --color-brand: #0b2247;
   --color-accent: #f4a81d;
   --color-whatsapp: #0f766e;
@@ -103,27 +104,27 @@ body {
     color: var(--color-whatsapp);
     font-family: var(--font-secondary);
     font-weight: bold;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 
   .headings__title {
     color: var(--color-brand);
     font-family: var(--font-primary);
     font-weight: 700;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
 
   .headings__intro {
     color: var(--color-text-tertiary);
     font-family: var(--font-secondary);
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 }
 
 /* All Site Icons */
 
 .icon {
-  width: 35px;
+  width: 30px;
   box-sizing: content-box;
   padding: 0.7rem;
   border-radius: 12px;
@@ -500,13 +501,14 @@ body {
     column-gap: 1rem;
 
     .stat__img {
+      align-self: start;
       grid-row: 1/3;
       background-color: var(--color-accent);
     }
 
     .stat__value {
       font-family: var(--font-primary);
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       color: var(--color-brand);
       font-weight: 700;
     }
@@ -515,7 +517,7 @@ body {
       align-self: start;
       grid-column: 2/3;
       font-family: var(--font-secondary);
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       color: var(--color-text-tertiary);
     }
   }
@@ -565,13 +567,13 @@ body {
     .card__title {
       color: var(--color-brand);
       font-family: var(--font-primary);
-      font-size: 1.1rem;
+      font-size: 1.25rem;
     }
 
     .card__info {
       color: var(--color-text-tertiary);
       font-family: var(--font-secondary);
-      font-size: 0.8rem;
+      font-size: 0.9rem;
     }
   }
 
@@ -594,6 +596,7 @@ body {
 .choose__btn {
   color: var(--color-primary);
   background-color: var(--color-brand);
+  border: none;
 
   box-shadow:
     0 0 12px color-mix(in srgb, var(--color-brand) 50%, transparent),
@@ -612,3 +615,125 @@ body {
   display: grid;
 }
 
+.academics__cards {
+  display: grid;
+  gap: 1.5rem;
+  padding: 1rem 0;
+
+  .acad__card {
+    background-color: #e4f3f0;
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    display: inline-grid;
+    grid-template-columns: 1fr min-content;
+    row-gap: 0.8rem;
+
+    .card__number {
+      grid-column: 2/3;
+      grid-row: 1/3;
+      line-height: 1;
+      height: min-content;
+      align-self: start;
+      font: 800 3rem var(--font-primary);
+      color: rgba(15, 118, 110, 0.22);
+    }
+
+    .card__eyebrow {
+      grid-row: 1/2;
+      padding: 0.5rem 1rem;
+      width: max-content;
+      height: max-content;
+      border-radius: 20px;
+      background-color: var(--color-primary);
+      font: 700 0.9rem var(--font-secondary);
+      color: var(--color-whatsapp);
+    }
+
+    .card__title {
+      grid-column: 1/1;
+      font: 700 1.5rem var(--font-primary);
+      color: var(--color-brand);
+    }
+
+    .card__info {
+      grid-column: 1/3;
+      font: 400 1rem var(--font-secondary);
+      color: var(--color-para);
+    }
+
+    .card__tags {
+      grid-column: 1/1;
+      display: flex;
+      gap: 0.8rem;
+
+      .card__tag {
+        padding: 0.5rem 1rem;
+        width: max-content;
+        height: max-content;
+        border-radius: 20px;
+        background-color: var(--color-primary);
+        font: 600 0.8rem var(--font-secondary);
+        color: var(--color-brand);
+        border: 2px solid rgba(11, 34, 71, 0.1);
+      }
+    }
+
+    .card__footer {
+      grid-column: 1/3;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 2px solid rgba(11, 34, 71, 0.1);
+      padding-top: 0.8rem;
+
+      .card__footer__viewlink {
+        font: 600 1rem var(--font-secondary);
+        text-decoration: none;
+        color: var(--color-brand);
+      }
+
+      .card__footer__arrowbtn {
+        border: none;
+        padding: 0.7rem;
+        border-radius: 50%;
+        background-color: var(--color-whatsapp);
+      }
+    }
+  }
+}
+
+.acad__card:nth-child(2) {
+  background-color: #fff8ea;
+
+  .card__number {
+    color: rgba(244, 168, 29, 0.22);
+  }
+
+  .card__eyebrow {
+    color: #9a5b00;
+  }
+
+  .card__footer {
+    .card__footer__arrowbtn {
+      background-color: var(--color-accent);
+    }
+  }
+}
+
+.acad__card:nth-child(3) {
+  background-color: #eaf1fb;
+
+  .card__number {
+    color: rgba(42, 90, 166, 0.22);
+  }
+
+  .card__eyebrow {
+    color: #2a5aa6;
+  }
+
+  .card__footer {
+    .card__footer__arrowbtn {
+      background-color: #2a5aa6;
+    }
+  }
+}
