@@ -737,3 +737,9 @@ body {
     }
   }
 }
+
+.section__message {
+  width: 100%;
+  padding: 2.5rem var(--default-padding);
+  background-color: #14356b;
+}
