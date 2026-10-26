@@ -607,7 +607,7 @@ body {
 .section__academics {
   width: 100%;
   padding: 2.5rem var(--default-padding);
-  background-color: #fff;
+  background-color: var(--color-primary);
 }
 
 .academics__container {
@@ -742,4 +742,37 @@ body {
   width: 100%;
   padding: 2.5rem var(--default-padding);
   background-color: #14356b;
+}
+
+.message__container {
+  width: min(1400px, 100%);
+  display: grid;
+  gap: 1.5rem;
+
+  .director__img {
+    border: 3px solid white;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .director__message {
+    font: 700 1.8rem var(--font-primary);
+    color: var(--color-primary);
+  }
+
+  .director__info {
+    padding: 1rem 0;
+    color: #d6e2f5;
+    font: 500 1rem var(--font-secondary);
+    display: grid;
+    gap: 0.4rem;
+  }
 }
