@@ -93,6 +93,16 @@ body {
 }
 
 /* All Section headings style*/
+/* 
+.sections {
+  width: 100%;
+  padding: 2.5rem var(--default-padding);
+}
+
+.sections__containers {
+  width: min(1400px, 100%);
+  display: grid;
+} */
 
 .sections__headings {
   display: flex;
@@ -423,6 +433,7 @@ body {
 }
 
 .section__hero {
+  width: 100%;
   background: linear-gradient(to bottom right, #0a1f43, #16397a);
   padding: 2.5rem var(--default-padding);
 }
@@ -775,4 +786,9 @@ body {
     display: grid;
     gap: 0.4rem;
   }
+}
+
+.section__campus {
+  width: 100%;
+  padding: 2.5rem var(--default-padding);
 }
