@@ -10,6 +10,10 @@
   --color-whatsapp: #0f766e;
   --font-primary: "Poppins", sans-serif;
   --font-secondary: "Inter", sans-serif;
+  --size-heading: 1.5rem;
+  --size-subheading: 1.15rem;
+  --size-description: 0.9rem;
+  --size-button: 1rem;
 }
 
 * {
@@ -107,27 +111,28 @@ body {
 .sections__headings {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.5rem;
   padding: 0.5rem 0;
 
   .headings__kicker {
     color: var(--color-whatsapp);
     font-family: var(--font-secondary);
     font-weight: bold;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 
   .headings__title {
     color: var(--color-brand);
     font-family: var(--font-primary);
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: var(--size-heading);
   }
 
   .headings__intro {
     color: var(--color-text-tertiary);
     font-family: var(--font-secondary);
-    font-size: 1rem;
+    font-size: var(--size-description);
+    width: min(350px, 90%);
   }
 }
 
@@ -166,11 +171,11 @@ body {
     gap: 2px;
 
     .logo__img {
-      width: 50px;
+      width: 35px;
     }
 
     .logo__text {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-family: var(--font-primary);
       font-weight: bold;
       color: var(--color-brand);
@@ -237,7 +242,7 @@ body {
 
     .sidebar__title {
       color: var(--color-primary);
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-family: var(--font-primary);
       font-weight: bold;
       align-self: end;
@@ -252,7 +257,7 @@ body {
     }
 
     .sidebar__logo {
-      width: 50px;
+      width: 35px;
       grid-row: 1/3;
       margin-right: 0.3rem;
     }
@@ -315,12 +320,12 @@ body {
       font-family: var(--font-primary);
       color: var(--color-brand);
       font-weight: 600;
-      font-size: 1.1rem;
+      font-size: var(--size-subheading);
     }
 
     .link__description {
       grid-column: 1/2;
-      font-size: 0.8rem;
+      font-size: var(--size-description);
       font-family: var(--font-secondary);
       color: var(--color-text-tertiary);
     }
@@ -377,6 +382,7 @@ body {
 
   .apply__btn {
     grid-column: 1/3;
+    font-size: var(--size-button);
   }
 
   .call__link {
@@ -384,13 +390,15 @@ body {
     align-self: center;
     padding: 0.7rem 1rem;
     text-decoration: none;
+    font-size: var(--size-button);
   }
 
   .whatsapp__link {
-    height: fit-content;
+    height: 100%;
     align-self: center;
     padding: 0.7rem 1rem;
     text-decoration: none;
+    font-size: var(--size-button);
   }
 
   .sidebar__footer__links {
@@ -400,6 +408,7 @@ body {
     gap: 10px;
     color: var(--color-text-secondary);
     font-family: var(--font-secondary);
+    font-size: var(--size-description);
 
     .social__icon {
       width: 40px;
@@ -456,7 +465,7 @@ body {
     color: var(--color-primary);
     font-family: var(--font-primary);
     line-height: 1.1;
-    font-size: 2.9rem;
+    font-size: 2rem;
 
     .hero__highlighted {
       color: var(--color-accent);
@@ -464,7 +473,7 @@ body {
   }
 
   .hero__subheading {
-    font-size: 1rem;
+    font-size: var(--size-description);
     color: var(--color-text-secondary);
     font-family: var(--font-secondary);
     width: 90%;
@@ -475,6 +484,10 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+
+    button {
+      font-size: var(--size-button);
+    }
   }
 }
 
@@ -510,6 +523,7 @@ body {
     grid-template-columns: min-content 1fr;
     align-items: center;
     column-gap: 1rem;
+    row-gap: 0.4rem;
 
     .stat__img {
       align-self: start;
@@ -519,7 +533,7 @@ body {
 
     .stat__value {
       font-family: var(--font-primary);
-      font-size: 1.6rem;
+      font-size: var(--size-heading);
       color: var(--color-brand);
       font-weight: 700;
     }
@@ -528,7 +542,7 @@ body {
       align-self: start;
       grid-column: 2/3;
       font-family: var(--font-secondary);
-      font-size: 0.9rem;
+      font-size: var(--size-description);
       color: var(--color-text-tertiary);
     }
   }
@@ -578,13 +592,13 @@ body {
     .card__title {
       color: var(--color-brand);
       font-family: var(--font-primary);
-      font-size: 1.25rem;
+      font-size: var(--size-subheading);
     }
 
     .card__info {
       color: var(--color-text-tertiary);
       font-family: var(--font-secondary);
-      font-size: 0.9rem;
+      font-size: var(--size-description);
     }
   }
 
@@ -607,6 +621,7 @@ body {
 .choose__btn {
   color: var(--color-primary);
   background-color: var(--color-brand);
+  font-size: var(--size-button);
   border: none;
 
   box-shadow:
@@ -656,26 +671,26 @@ body {
       height: max-content;
       border-radius: 20px;
       background-color: var(--color-primary);
-      font: 700 0.9rem var(--font-secondary);
+      font: 700 0.8rem var(--font-secondary);
       color: var(--color-whatsapp);
     }
 
     .card__title {
       grid-column: 1/1;
-      font: 700 1.5rem var(--font-primary);
+      font: 700 1.4rem var(--font-primary);
       color: var(--color-brand);
     }
 
     .card__info {
       grid-column: 1/3;
-      font: 400 1rem var(--font-secondary);
+      font: 400 var(--size-description) var(--font-secondary);
       color: var(--color-para);
     }
 
     .card__tags {
       grid-column: 1/1;
       display: flex;
-      gap: 0.8rem;
+      gap: 0.7rem;
 
       .card__tag {
         padding: 0.5rem 1rem;
@@ -762,8 +777,8 @@ body {
 
   .director__img {
     border: 3px solid white;
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     overflow: hidden;
 
@@ -782,7 +797,7 @@ body {
   .director__info {
     padding: 1rem 0;
     color: #d6e2f5;
-    font: 500 1rem var(--font-secondary);
+    font: 500 var(--size-description) var(--font-secondary);
     display: grid;
     gap: 0.4rem;
   }
@@ -833,15 +848,15 @@ body {
       padding: 0.4rem 0.8rem;
       border-radius: 1.5rem;
       color: var(--color-brand);
-      font: 600 0.8rem var(--font-secondary);
+      font: 600 0.7rem var(--font-secondary);
     }
 
     .caption__title {
-      font: 700 1.5rem var(--font-primary);
+      font: 700 var(--size-heading) var(--font-primary);
     }
 
     .caption__info {
-      font: 400 0.8rem var(--font-secondary);
+      font: 400 var(--size-description) var(--font-secondary);
       color: #d6e2f5;
       width: 90%;
     }
@@ -871,13 +886,13 @@ body {
     }
 
     .facility__title {
-      font: 600 1.1rem var(--font-primary);
+      font: 600 var(--size-subheading) var(--font-primary);
       line-height: 1.1;
       color: var(--color-brand);
     }
 
     .facility__info {
-      font: 400 0.8rem var(--font-secondary);
+      font: 400 var(--size-description) var(--font-secondary);
       color: var(--color-text-tertiary);
     }
   }
@@ -893,5 +908,11 @@ body {
   }
   .facility:nth-child(6) img {
     background-color: var(--color-brand);
+  }
+}
+
+.section__schoollife {
+  img {
+    width: 300px;
   }
 }
