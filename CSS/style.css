@@ -791,4 +791,107 @@ body {
 .section__campus {
   width: 100%;
   padding: 2.5rem var(--default-padding);
+  background-color: #f1f5fb;
+}
+
+.campus__container {
+  width: min(1400px, 100%);
+  display: grid;
+  gap: 1.5rem;
+}
+
+.campus__photo {
+  width: 100%;
+  aspect-ratio: 4/3;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .camp__captions {
+    position: absolute;
+    width: 100%;
+    background: linear-gradient(transparent, rgba(10, 31, 67, 0.88));
+    height: 70%;
+    bottom: 0;
+    padding: 1rem;
+    color: var(--color-primary);
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    gap: 0.8rem;
+
+    .caption__chip {
+      background-color: var(--color-accent);
+      width: fit-content;
+      height: fit-content;
+      padding: 0.4rem 0.8rem;
+      border-radius: 1.5rem;
+      color: var(--color-brand);
+      font: 600 0.8rem var(--font-secondary);
+    }
+
+    .caption__title {
+      font: 700 1.5rem var(--font-primary);
+    }
+
+    .caption__info {
+      font: 400 0.8rem var(--font-secondary);
+      color: #d6e2f5;
+      width: 90%;
+    }
+  }
+}
+
+.campus__facilities {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 1rem;
+
+  .facility {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    background-color: var(--color-primary);
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow:
+      0 4px 24px color-mix(in srgb, var(--color-brand) 6%, transparent),
+      0 4px 28px rgba(0, 0, 0, 0.12);
+
+    .facility__img {
+      background-color: var(--color-accent);
+    }
+
+    .facility__title {
+      font: 600 1.1rem var(--font-primary);
+      line-height: 1.1;
+      color: var(--color-brand);
+    }
+
+    .facility__info {
+      font: 400 0.8rem var(--font-secondary);
+      color: var(--color-text-tertiary);
+    }
+  }
+
+  .facility:nth-child(2) img {
+    background-color: var(--color-whatsapp);
+  }
+  .facility:nth-child(3) img {
+    background-color: var(--color-brand);
+  }
+  .facility:nth-child(5) img {
+    background-color: var(--color-whatsapp);
+  }
+  .facility:nth-child(6) img {
+    background-color: var(--color-brand);
+  }
 }
