@@ -32,11 +32,12 @@ body {
 .btn {
   padding: 1.1rem 1.7rem;
   border-radius: 999px;
-  font: 600 1rem var(--font-primary);
+  font: 600 1rem var(--font-secondary);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
+  border: none;
 }
 
 .btn--primary {
@@ -767,7 +768,7 @@ body {
 .section__message {
   width: 100%;
   padding: 2.5rem var(--default-padding);
-  background-color: #14356b;
+  background: linear-gradient(to bottom right, #0a1f43, #16397a);
 }
 
 .message__container {
@@ -995,7 +996,7 @@ body {
     gap: 0.5rem;
     font: 500 1rem var(--font-secondary);
 
-    .card__new--tag{
+    .card__new--tag {
       font: 700 0.7rem var(--font-secondary);
       color: var(--color-brand);
       background-color: var(--color-accent);
@@ -1006,12 +1007,43 @@ body {
       right: 1rem;
     }
 
-    .card__date{
+    .card__date {
       color: #14356b;
       font-weight: 600;
     }
-    .card__description{
+    .card__description {
       color: #1f2937;
     }
+  }
+}
+
+.section__admission--CTA {
+  width: 100%;
+  padding: 1.7rem var(--default-padding);
+  background-color: var(--color-accent);
+  display: grid;
+  gap: 1rem;
+
+  .cta__heading {
+    color: var(--color-brand);
+    font: 700 var(--size-heading) var(--font-primary);
+    margin-bottom: 1.5rem;
+  }
+
+  .cta__apply--btn {
+    margin-top: 1rem;
+    color: var(--color-primary);
+    background-color: var(--color-brand);
+    font-size: var(--size-button);
+    border: none;
+
+    box-shadow:
+      0 0 12px color-mix(in srgb, var(--color-brand) 50%, transparent),
+      0 0 30px color-mix(in srgb, var(--color-brand) 35%, transparent),
+      0 4px 12px rgb(0 0 0 / 12%);
+  }
+
+  .cta__whatsapp--btn {
+    color: var(--color-brand);
   }
 }
