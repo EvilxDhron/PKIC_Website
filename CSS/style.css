@@ -1075,7 +1075,7 @@ body {
   height: 200px;
   border-radius: 16px;
   overflow: hidden;
-  background-color: salmon;
+  background-color: #eef3fa;
 
   iframe {
     width: 100%;
@@ -1084,7 +1084,7 @@ body {
 }
 
 .map__address {
-  color: #5b6b82;
+  color: var(--color-text-tertiary);
   font: 400 var(--size-description) var(--font-secondary);
   line-height: 1.5;
 }
