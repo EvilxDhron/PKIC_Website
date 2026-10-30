@@ -1057,3 +1057,34 @@ body {
     color: var(--color-brand);
   }
 }
+
+.section__map {
+  width: 100%;
+  padding: 1.7rem var(--default-padding);
+  background-color: var(--color-primary);
+}
+
+.map__container {
+  width: min(1400px, 100%);
+  display: grid;
+  gap: 1rem;
+}
+
+.map__location {
+  width: 100%;
+  height: 200px;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: salmon;
+
+  iframe {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.map__address {
+  color: #5b6b82;
+  font: 400 var(--size-description) var(--font-secondary);
+  line-height: 1.5;
+}
