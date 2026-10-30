@@ -974,12 +974,22 @@ body {
 .section__notices {
   width: 100%;
   padding: 1.7rem var(--default-padding);
-  background-color: var(--color-primary);
+  /* background-color: var(--color-primary); */
+  background: linear-gradient(to bottom right, #0a1f43, #16397a);
 }
 
 .notices__container {
   width: min(1400px, 100%);
   display: grid;
+}
+
+.notices__headings {
+  .notices__kicker {
+    color: var(--color-accent);
+  }
+  .notices__title {
+    color: var(--color-primary);
+  }
 }
 
 .notices__cards {
