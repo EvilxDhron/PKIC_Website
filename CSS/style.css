@@ -260,7 +260,10 @@ body {
     .sidebar__logo {
       width: 35px;
       grid-row: 1/3;
-      margin-right: 0.3rem;
+      align-self: end;
+      margin-right: 0.5rem;
+      background-color: white;
+      border-radius: 50%;
     }
   }
 
@@ -1087,4 +1090,61 @@ body {
   color: var(--color-text-tertiary);
   font: 400 var(--size-description) var(--font-secondary);
   line-height: 1.5;
+}
+
+.footer {
+  width: 100%;
+  padding: 1.7rem var(--default-padding);
+  background: linear-gradient(to bottom right, #0a1f43, #16397a);
+  color: white;
+
+  .footer__logo {
+    width: 35px;
+  }
+}
+
+.footer__container {
+  width: min(1400px, 100%);
+  display: grid;
+  gap: 1.5rem;
+}
+
+.footer__header {
+  display: grid;
+  gap: 1.5rem;
+
+  .school__description {
+    font: 400 var(--size-description) var(--font-secondary);
+    color: #d6e2f5;
+  }
+}
+
+.footer__branding {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+
+  .footer__title {
+    color: var(--color-primary);
+    font-size: 1.1rem;
+    font-family: var(--font-primary);
+    font-weight: bold;
+    align-self: end;
+  }
+
+  .footer__subtitle {
+    color: var(--color-text-secondary);
+    font-size: 0.7rem;
+    font-family: var(--font-secondary);
+    grid-column: 2/3;
+    align-self: start;
+  }
+
+  .footer__logo {
+    align-self: end;
+    width: 35px;
+    grid-row: 1/3;
+    margin-right: 0.5rem;
+    background-color: white;
+    border-radius: 50%;
+  }
 }
