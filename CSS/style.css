@@ -2,10 +2,12 @@
   --default-padding: 20px;
   --color-primary: #ffffff;
   /* --color-text-primary: #0b2247; */
+  --color-text-on-dark: #d6e2f5;
   --color-text-secondary: #bfd3f2;
   --color-text-tertiary: #5b6b82;
   --color-para: #4a5a72;
   --color-brand: #0b2247;
+  --color-brand-light: #16397a;
   --color-accent: #f4a81d;
   --color-whatsapp: #0f766e;
   --font-primary: "Poppins", sans-serif;
@@ -14,6 +16,11 @@
   --size-subheading: 1.15rem;
   --size-description: 0.9rem;
   --size-button: 1rem;
+  --gradient-brand: linear-gradient(
+    to bottom right,
+    #0a1f43,
+    var(--color-brand-light)
+  );
 }
 
 * {
@@ -32,7 +39,7 @@ body {
 .btn {
   padding: 1.1rem 1.7rem;
   border-radius: 999px;
-  font: 600 1rem var(--font-secondary);
+  font: 600 var(--size-button) var(--font-secondary);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -53,14 +60,23 @@ body {
 
 .btn--outline {
   background: transparent;
-  color: #fff;
+  color: var(--color-primary);
   border: 2px solid #8b9dbb;
 }
 
 .btn--whatsapp {
   background: var(--color-whatsapp);
-  color: #fff;
+  color: var(--color-primary);
   border: 0;
+}
+
+.btn--brand {
+  background: var(--color-brand);
+  color: var(--color-primary);
+  box-shadow:
+    0 0 12px color-mix(in srgb, var(--color-brand) 50%, transparent),
+    0 0 30px color-mix(in srgb, var(--color-brand) 35%, transparent),
+    0 4px 12px rgb(0 0 0 / 12%);
 }
 
 .btn__icon {
@@ -264,7 +280,7 @@ body {
       grid-row: 1/3;
       align-self: end;
       margin-right: 0.5rem;
-      background-color: white;
+      background-color: var(--color-primary);
       border-radius: 50%;
     }
   }
@@ -448,7 +464,7 @@ body {
 }
 
 .section__hero {
-  background: linear-gradient(to bottom right, #0a1f43, #16397a);
+  background: var(--gradient-brand);
   padding: 2.5rem var(--default-padding);
 }
 
@@ -616,7 +632,7 @@ body {
   }
 }
 
-.choose__btn {
+/* .choose__btn {
   color: var(--color-primary);
   background-color: var(--color-brand);
   font-size: var(--size-button);
@@ -626,7 +642,7 @@ body {
     0 0 12px color-mix(in srgb, var(--color-brand) 50%, transparent),
     0 0 30px color-mix(in srgb, var(--color-brand) 35%, transparent),
     0 4px 12px rgb(0 0 0 / 12%);
-}
+} */
 
 .section__academics {
   background-color: var(--color-primary);
@@ -756,7 +772,7 @@ body {
 }
 
 .section__message {
-  background: linear-gradient(to bottom right, #0a1f43, #16397a);
+  background: var(--gradient-brand);
 }
 
 .director__quote {
@@ -784,7 +800,7 @@ body {
 
   .director__info {
     padding: 1rem 0;
-    color: #d6e2f5;
+    color: var(--color-text-on-dark);
     font: 500 var(--size-description) var(--font-secondary);
     display: grid;
     gap: 0.4rem;
@@ -841,7 +857,7 @@ body {
 
     .caption__info {
       font: 400 var(--size-description) var(--font-secondary);
-      color: #d6e2f5;
+      color: var(--color-text-on-dark);
       width: 90%;
     }
   }
@@ -938,21 +954,12 @@ body {
   }
 }
 .schoollife__btn {
-  margin-top: 1rem;
-  color: var(--color-primary);
-  background-color: var(--color-brand);
-  font-size: var(--size-button);
-  border: none;
-
-  box-shadow:
-    0 0 12px color-mix(in srgb, var(--color-brand) 50%, transparent),
-    0 0 30px color-mix(in srgb, var(--color-brand) 35%, transparent),
-    0 4px 12px rgb(0 0 0 / 12%);
+  margin-top: 1.5rem;
 }
 
 .section__notices {
   /* background-color: var(--color-primary); */
-  background: linear-gradient(to bottom right, #0a1f43, #16397a);
+  background: var(--gradient-brand);
 }
 
 .notices__headings {
@@ -1013,15 +1020,6 @@ body {
   .cta__apply--btn {
     width: 100%;
     margin-top: 1rem;
-    color: var(--color-primary);
-    background-color: var(--color-brand);
-    font-size: var(--size-button);
-    border: none;
-
-    box-shadow:
-      0 0 12px color-mix(in srgb, var(--color-brand) 50%, transparent),
-      0 0 30px color-mix(in srgb, var(--color-brand) 35%, transparent),
-      0 4px 12px rgb(0 0 0 / 12%);
   }
 
   .cta__whatsapp--btn {
@@ -1073,7 +1071,7 @@ body {
 
   .school__description {
     font: 400 var(--size-description) var(--font-secondary);
-    color: #d6e2f5;
+    color: var(--color-text-on-dark);
   }
 }
 
@@ -1126,7 +1124,7 @@ body {
 
       .link {
         text-decoration: none;
-        color: #d6e2f5;
+        color: var(--color-text-on-dark);
         font: 400 var(--size-description) var(--font-secondary);
       }
     }
@@ -1155,7 +1153,7 @@ body {
     }
 
     p {
-      color: #d6e2f5;
+      color: var(--color-text-on-dark);
       font: 400 var(--size-description) var(--font-secondary);
     }
   }
