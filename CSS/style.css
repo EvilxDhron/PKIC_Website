@@ -1,5 +1,5 @@
 :root {
-  --default-padding: 1.2rem;
+  --default-padding: 20px;
   --color-primary: #ffffff;
   /* --color-text-primary: #0b2247; */
   --color-text-secondary: #bfd3f2;
@@ -97,17 +97,19 @@ body {
   }
 }
 
-/* All Section headings style*/
-/* 
-.sections {
+/* All Section styles*/
+
+.section {
   width: 100%;
-  padding: 2.5rem var(--default-padding);
+  padding: 48px var(--default-padding);
+  display: grid;
+  place-items: center;
 }
 
-.sections__containers {
-  width: min(1400px, 100%);
+.section__container {
+  width: 100%;
   display: grid;
-} */
+}
 
 .sections__headings {
   display: flex;
@@ -446,13 +448,11 @@ body {
 }
 
 .section__hero {
-  width: 100%;
   background: linear-gradient(to bottom right, #0a1f43, #16397a);
   padding: 2.5rem var(--default-padding);
 }
 
 .hero__container {
-  width: min(1400px, 100%);
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -510,14 +510,10 @@ body {
 }
 
 .statistics {
-  width: 100%;
-  padding: 2.5rem var(--default-padding);
   background-color: #fff;
 }
 
 .stats__container {
-  width: 100%;
-  display: grid;
   grid-template-columns: 1fr 1fr;
   row-gap: 1.5rem;
   column-gap: 0.9rem;
@@ -565,8 +561,6 @@ body {
 }
 
 .section__choose {
-  width: 100%;
-  padding: 2.5rem var(--default-padding);
   background-color: #f1f5fb;
 }
 
@@ -635,14 +629,7 @@ body {
 }
 
 .section__academics {
-  width: 100%;
-  padding: 2.5rem var(--default-padding);
   background-color: var(--color-primary);
-}
-
-.academics__container {
-  width: min(1400px, 100%);
-  display: grid;
 }
 
 .academics__cards {
@@ -769,13 +756,10 @@ body {
 }
 
 .section__message {
-  width: 100%;
-  padding: 2.5rem var(--default-padding);
   background: linear-gradient(to bottom right, #0a1f43, #16397a);
 }
 
-.message__container {
-  width: min(1400px, 100%);
+.director__quote {
   display: grid;
   gap: 1.5rem;
 
@@ -808,14 +792,10 @@ body {
 }
 
 .section__campus {
-  width: 100%;
-  padding: 1.7rem var(--default-padding);
   background-color: #f1f5fb;
 }
 
 .campus__container {
-  width: min(1400px, 100%);
-  display: grid;
   gap: 1.5rem;
 }
 
@@ -916,14 +896,10 @@ body {
 }
 
 .section__schoollife {
-  width: 100%;
-  padding: 1.7rem var(--default-padding);
   background-color: var(--color-primary);
 }
 
 .schoollife__container {
-  width: min(1400px, 100%);
-  display: grid;
   gap: 1rem;
 }
 
@@ -975,15 +951,8 @@ body {
 }
 
 .section__notices {
-  width: 100%;
-  padding: 1.7rem var(--default-padding);
   /* background-color: var(--color-primary); */
   background: linear-gradient(to bottom right, #0a1f43, #16397a);
-}
-
-.notices__container {
-  width: min(1400px, 100%);
-  display: grid;
 }
 
 .notices__headings {
@@ -1031,19 +1000,18 @@ body {
 }
 
 .section__admission--CTA {
-  width: 100%;
-  padding: 1.7rem var(--default-padding);
   background-color: var(--color-accent);
-  display: grid;
   gap: 1rem;
 
   .cta__heading {
+    width: 100%;
     color: var(--color-brand);
     font: 700 var(--size-heading) var(--font-primary);
     margin-bottom: 1.5rem;
   }
 
   .cta__apply--btn {
+    width: 100%;
     margin-top: 1rem;
     color: var(--color-primary);
     background-color: var(--color-brand);
@@ -1057,19 +1025,16 @@ body {
   }
 
   .cta__whatsapp--btn {
+    width: 100%;
     color: var(--color-brand);
   }
 }
 
 .section__map {
-  width: 100%;
-  padding: 1.7rem var(--default-padding);
   background-color: var(--color-primary);
 }
 
 .map__container {
-  width: min(1400px, 100%);
-  display: grid;
   gap: 1rem;
 }
 
@@ -1081,6 +1046,7 @@ body {
   background-color: #eef3fa;
 
   iframe {
+    display: none; /* for development purpose */
     width: 100%;
     height: 100%;
   }
@@ -1093,15 +1059,11 @@ body {
 }
 
 .footer {
-  width: 100%;
-  padding: 1.7rem var(--default-padding);
   background-color: var(--color-brand);
-  color: white;
+  padding-bottom: 1rem;
 }
 
 .footer__container {
-  width: min(1400px, 100%);
-  display: grid;
   gap: 1.5rem;
 }
 
@@ -1121,16 +1083,13 @@ body {
 
   .footer__title {
     color: var(--color-primary);
-    font-size: 1.2rem;
-    font-family: var(--font-primary);
-    font-weight: bold;
+    font: bold 1.2rem var(--font-primary);
     align-self: end;
   }
 
   .footer__subtitle {
     color: var(--color-text-secondary);
-    font-size: 0.8rem;
-    font-family: var(--font-secondary);
+    font: 400 var(--size-description) var(--font-secondary);
     grid-column: 2/3;
     align-self: start;
   }
