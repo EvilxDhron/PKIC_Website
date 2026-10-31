@@ -1201,3 +1201,20 @@ body {
     }
   }
 }
+
+.footer__bottom {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--color-text-secondary);
+  font-family: var(--font-secondary);
+  font-size: var(--size-description);
+
+  .copyright {
+    margin-right: auto;
+  }
+  .social__icon {
+    width: 40px;
+  }
+}
