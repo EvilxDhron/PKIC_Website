@@ -1,5 +1,7 @@
 "use strict";
 
+const heading = document.querySelector(".hero__heading");
+
 /* Sidebar elements */
 
 const sidebar = document.querySelector(".sidebar");
@@ -15,6 +17,20 @@ const facilityCards = document.querySelectorAll(".facility");
 const noticeCards = document.querySelectorAll(".notice__card");
 
 const gallery = document.querySelector(".schoollife__gallery");
+
+heading.innerHTML = heading.innerHTML
+  .replace(
+    "Where every child",
+    '<span class="heading-line"><span class="line-inner">Where every child</span></span>',
+  )
+  .replace(
+    "learns to lead with",
+    '<span class="heading-line"><span class="line-inner">learns to lead with</span></span>',
+  )
+  .replace(
+    '<span class="hero__highlighted">confidence</span>',
+    '<span class="heading-line"><span class="line-inner"><span class="hero__highlighted">confidence</span></span></span>',
+  );
 
 const handleCards = (entries, observer) => {
   entries.forEach((entry) => {
