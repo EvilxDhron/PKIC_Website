@@ -14,6 +14,8 @@ const whyCards = document.querySelectorAll(".why-card");
 const facilityCards = document.querySelectorAll(".facility");
 const noticeCards = document.querySelectorAll(".notice__card");
 
+const gallery = document.querySelector(".schoollife__gallery");
+
 const handleCards = (entries, observer) => {
   entries.forEach((entry) => {
     if (!entry.isIntersecting) return;
@@ -42,11 +44,11 @@ const handleSidebar = () => {
   sidebarBackdrop.classList.toggle("backdrop__hide");
 };
 
-hamBtn.addEventListener("click", handleSidebar);
-
-sidebarCloseBtn.addEventListener("click", handleSidebar);
-
-sidebarBackdrop.addEventListener("click", handleSidebar);
+const handleBackdrop = () => {
+  sidebar.classList.add("sidebar__hide");
+  sidebarBackdrop.classList.add("backdrop__hide");
+  document.querySelector(".active--photo")?.classList.remove("active--photo");
+};
 
 const goToSection = (event) => {
   return (event) => {
@@ -60,4 +62,39 @@ const goToSection = (event) => {
   };
 };
 
+const removeActivePhoto = () => {
+  gallery.querySelector(".active--photo")?.classList.remove("active--photo");
+  gallery
+    .querySelector(".active--caption")
+    ?.classList.remove("active--caption");
+};
+
+const showPhoto = (event) => {
+  return (event) => {
+    const photo = event.target.closest(".gallery__photo");
+    removeActivePhoto();
+    if (photo) {
+      photo.classList.add("active--photo");
+      sidebarBackdrop.classList.remove("backdrop__hide");
+    }
+  };
+};
+
+hamBtn.addEventListener("click", handleSidebar);
+
+sidebarCloseBtn.addEventListener("click", handleSidebar);
+
+sidebarBackdrop.addEventListener("click", handleBackdrop);
+
 sidebar.addEventListener("click", goToSection(event));
+
+gallery.addEventListener("click", showPhoto(event));
+
+window.addEventListener(
+  "scroll",
+  () => {
+    document.querySelector(".active--photo")?.classList.remove("active--photo");
+    handleBackdrop();
+  },
+  { passive: true },
+);

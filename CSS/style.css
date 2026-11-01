@@ -88,6 +88,10 @@ body {
   width: 20px;
 }
 
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
 /* all eyebrows */
 
 .eyebrow {
@@ -964,6 +968,7 @@ body {
     border-radius: 1.13rem;
     overflow: hidden;
     background-position: left;
+    transition: transform 0.35s ease-in-out;
 
     img {
       width: 100%;
@@ -984,9 +989,41 @@ body {
       font: 600 var(--size-description) var(--font-secondary);
     }
   }
+
+  .photo__1 {
+    grid-column: 1/1;
+    grid-row: 1/1;
+  }
+  .photo__2 {
+    grid-column: 2/3;
+    grid-row: 1/1;
+  }
+  .photo__3 {
+    grid-column: 1/1;
+    grid-row: 2/3;
+  }
+  .photo__4 {
+    grid-column: 2/3;
+    grid-row: 2/3;
+  }
 }
 .schoollife__btn {
   margin-top: 1.5rem;
+}
+
+.gallery__photo.active--photo {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.15);
+  z-index: 10;
+  width: min(75vw, 450px);
+  height: auto;
+  aspect-ratio: 4 / 3;
+}
+
+.gallery__photo.active--photo .img__caption {
+  display: none;
 }
 
 .section__notices {
