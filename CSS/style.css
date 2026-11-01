@@ -174,8 +174,17 @@ body {
 
 .header {
   width: 100%;
-  padding: 0.7rem var(--default-padding);
-  background-color: var(--color-primary);
+  /* background-color: var(--color-primary); */
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.75);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  /* 
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+   */
 }
 
 .header .navbar {
@@ -183,6 +192,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  backdrop-filter: blur(16px);
+  padding: 0.7rem var(--default-padding);
 }
 
 .navbar {
@@ -608,6 +619,8 @@ body {
     box-shadow:
       0 4px 12px color-mix(in srgb, var(--color-brand) 6%, transparent),
       0 8px 16px rgba(0, 0, 0, 0.12);
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
 
     .card__title {
       color: var(--color-brand);
@@ -666,6 +679,8 @@ body {
     display: inline-grid;
     grid-template-columns: 1fr min-content;
     row-gap: 0.8rem;
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
 
     .card__number {
       grid-column: 2/3;
@@ -886,6 +901,8 @@ body {
     box-shadow:
       0 4px 24px color-mix(in srgb, var(--color-brand) 6%, transparent),
       0 4px 28px rgba(0, 0, 0, 0.12);
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
 
     .facility__img {
       background-color: var(--color-accent);
@@ -903,17 +920,26 @@ body {
     }
   }
 
-  .facility:nth-child(2) img {
-    background-color: var(--color-whatsapp);
+  .facility:nth-child(2) {
+    transition: all 0.5s ease-in-out;
+    img {
+      background-color: var(--color-whatsapp);
+    }
   }
   .facility:nth-child(3) img {
     background-color: var(--color-brand);
   }
+  .facility:nth-child(4) {
+    transition: all 0.5s ease-in-out;
+  }
   .facility:nth-child(5) img {
     background-color: var(--color-whatsapp);
   }
-  .facility:nth-child(6) img {
-    background-color: var(--color-brand);
+  .facility:nth-child(6) {
+    transition: all 0.5s ease-in-out;
+    img {
+      background-color: var(--color-brand);
+    }
   }
 }
 
@@ -990,6 +1016,8 @@ body {
     display: grid;
     gap: 0.5rem;
     font: 500 1rem var(--font-secondary);
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
 
     .card__new--tag {
       font: 700 0.7rem var(--font-secondary);
@@ -1181,4 +1209,12 @@ body {
   .social__icon {
     width: 40px;
   }
+}
+
+/* Animations properties */
+
+.animate__card {
+  transform: translateY(70px);
+  filter: blur(8px);
+  opacity: 0;
 }

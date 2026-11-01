@@ -7,9 +7,9 @@
 }
 
 .quote {
-  animation: title-reveal 0.9s ease-out both;
+  animation: title-reveal 0.3s ease-out both;
   animation-timeline: view();
-  animation-range: entry 0% entry 120%;
+  animation-range: entry 0% entry 200%;
 }
 
 @keyframes title-reveal {
