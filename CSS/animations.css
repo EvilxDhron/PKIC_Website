@@ -2,6 +2,287 @@
   animation: title-reveal 0.9s ease-out both;
 }*/
 
+/* =================================
+   PKIC MOBILE LOADER
+================================= */
+
+.pkic-loader {
+  /* Theme */
+  --loader-primary: #16365e;
+  --loader-accent: #d6a443;
+  --loader-muted: #8491a3;
+
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+
+  display: none;
+  place-items: center;
+
+  padding: 24px;
+  overflow: hidden;
+
+  background: radial-gradient(
+    circle at 50% 42%,
+    #ffffff 0%,
+    #f5f7fb 65%,
+    #edf2f8 100%
+  );
+
+  opacity: 1;
+  visibility: visible;
+
+  transition:
+    opacity 0.55s ease,
+    visibility 0.55s ease;
+}
+
+/* Show only on mobile */
+@media (max-width: 767px) {
+  .pkic-loader {
+    display: grid;
+  }
+}
+
+/* Prevent background scrolling */
+body.pkic-scroll-locked {
+  overflow: hidden;
+}
+
+/* Loader content */
+.pkic-loader__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  text-align: center;
+
+  animation: pkic-content-in 0.7s ease both;
+}
+
+/* =================================
+   LOGO ANIMATION
+================================= */
+
+.pkic-loader__logo {
+  position: relative;
+
+  display: grid;
+  place-items: center;
+
+  width: 116px;
+  aspect-ratio: 1;
+}
+
+/* Orbital rings */
+.pkic-loader__orbit {
+  position: absolute;
+
+  inset: 0;
+
+  border-radius: 50%;
+}
+
+/* Outer ring */
+.pkic-loader__orbit--outer {
+  border: 1px solid rgba(22, 54, 94, 0.13);
+
+  border-top-color: var(--loader-accent);
+  border-right-color: transparent;
+
+  animation: pkic-spin 2.6s linear infinite;
+}
+
+/* Small golden orbital dot */
+.pkic-loader__orbit--outer::before {
+  content: "";
+
+  position: absolute;
+  top: 8px;
+  right: 13px;
+
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: var(--loader-accent);
+
+  box-shadow: 0 0 12px rgba(214, 164, 67, 0.5);
+}
+
+/* Inner ring */
+.pkic-loader__orbit--inner {
+  inset: 10px;
+
+  border: 1px dashed rgba(22, 54, 94, 0.2);
+
+  animation: pkic-spin 9s linear infinite reverse;
+}
+
+/* Centre logo */
+.pkic-loader__core {
+  display: grid;
+  place-items: center;
+
+  width: 68px;
+  aspect-ratio: 1;
+
+  border-radius: 23px;
+
+  color: #ffffff;
+  background: linear-gradient(145deg, #244b77, #102743);
+
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 1px;
+
+  box-shadow:
+    0 15px 35px rgba(22, 54, 94, 0.2),
+    inset 0 1px 1px rgba(255, 255, 255, 0.2);
+
+  animation: pkic-pulse 2.2s ease-in-out infinite;
+}
+
+/* =================================
+   BRANDING
+================================= */
+
+.pkic-loader__brand {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+
+  margin: 30px 0 9px;
+
+  color: var(--loader-primary);
+
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.17em;
+  line-height: 1.5;
+}
+
+.pkic-loader__brand span:last-child {
+  color: var(--loader-accent);
+}
+
+.pkic-loader__tagline {
+  margin: 0;
+
+  color: var(--loader-muted);
+
+  font-size: 12px;
+  letter-spacing: 0.04em;
+}
+
+/* =================================
+   PROGRESS BAR
+================================= */
+
+.pkic-loader__progress {
+  width: 155px;
+  height: 3px;
+
+  margin-top: 31px;
+
+  overflow: hidden;
+
+  border-radius: 100px;
+
+  background: rgba(22, 54, 94, 0.1);
+}
+
+.pkic-loader__progress span {
+  display: block;
+
+  width: 38%;
+  height: 100%;
+
+  border-radius: inherit;
+
+  background: linear-gradient(90deg, #d6a443, #f3d58d);
+
+  animation: pkic-progress 1.35s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+.pkic-loader__status {
+  margin: 13px 0 0;
+
+  color: var(--loader-muted);
+
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+}
+
+/* =================================
+   KEYFRAMES
+================================= */
+
+/* Rotate the orbital rings */
+@keyframes pkic-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Give the logo a gentle breathing effect */
+@keyframes pkic-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.07);
+  }
+}
+
+/* Move the progress bar */
+@keyframes pkic-progress {
+  0% {
+    transform: translateX(-125%);
+  }
+
+  100% {
+    transform: translateX(300%);
+  }
+}
+
+/* Introduce the content */
+@keyframes pkic-content-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =================================
+   LOADER EXIT
+================================= */
+
+.pkic-loader.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .pkic-loader * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
 .hero__heading .heading-line {
   display: inline-block;
   overflow: hidden;
