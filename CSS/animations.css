@@ -29,12 +29,12 @@
     #edf2f8 100%
   );
 
-  opacity: 1;
   visibility: visible;
+  transform: translateY(0);
 
   transition:
-    opacity 0.55s ease,
-    visibility 0.55s ease;
+    visibility 2s ease,
+    transform 1.2s ease;
 }
 
 /* Show only on mobile */
@@ -55,9 +55,12 @@ body.pkic-scroll-locked {
   flex-direction: column;
   align-items: center;
 
+  opacity: 1;
+
   width: 100%;
   text-align: center;
 
+  transition: opacity 0.1s ease;
   animation: pkic-content-in 0.7s ease both;
 }
 
@@ -88,7 +91,7 @@ body.pkic-scroll-locked {
 .pkic-loader__orbit--outer {
   border: 1px solid rgba(22, 54, 94, 0.13);
 
-  border-top-color: var(--loader-accent);
+  border-top-color: var(--color-accent);
   border-right-color: transparent;
 
   animation: pkic-spin 2.6s linear infinite;
@@ -99,7 +102,7 @@ body.pkic-scroll-locked {
   content: "";
 
   position: absolute;
-  top: 8px;
+  top: 12px;
   right: 13px;
 
   width: 8px;
@@ -107,9 +110,13 @@ body.pkic-scroll-locked {
 
   border-radius: 50%;
 
-  background: var(--loader-accent);
+  background: var(--color-accent);
 
-  box-shadow: 0 0 12px rgba(214, 164, 67, 0.5);
+  /* box-shadow: 0 0 12px rgba(214, 164, 67, 0.5); */
+  box-shadow:
+    0 0 12px color-mix(in srgb, var(--color-accent) 80%, transparent),
+    0 0 30px color-mix(in srgb, var(--color-accent) 65%, transparent),
+    0 4px 16px rgb(0 0 0 / 12%);
 }
 
 /* Inner ring */
@@ -125,24 +132,32 @@ body.pkic-scroll-locked {
 .pkic-loader__core {
   display: grid;
   place-items: center;
+  padding: 4px;
+  box-sizing: content-box;
 
   width: 68px;
-  aspect-ratio: 1;
+  height: 68px;
 
-  border-radius: 23px;
+  border-radius: 50%;
 
-  color: #ffffff;
-  background: linear-gradient(145deg, #244b77, #102743);
-
-  font-size: 17px;
-  font-weight: 800;
-  letter-spacing: 1px;
+  background: linear-gradient(
+    to bottom right,
+    #0a1f43,
+    var(--color-brand-light)
+  );
 
   box-shadow:
-    0 15px 35px rgba(22, 54, 94, 0.2),
-    inset 0 1px 1px rgba(255, 255, 255, 0.2);
+    0 0 8px color-mix(in srgb, var(--color-brand) 50%, transparent),
+    0 0 16px color-mix(in srgb, var(--color-brand) 35%, transparent),
+    0 4px 12px rgb(0 0 0 / 12%);
 
   animation: pkic-pulse 2.2s ease-in-out infinite;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
 /* =================================
@@ -157,16 +172,17 @@ body.pkic-scroll-locked {
 
   margin: 30px 0 9px;
 
-  color: var(--loader-primary);
+  color: var(--color-brand);
 
-  font-size: 13px;
+  font-size: 1rem;
   font-weight: 800;
+  font-family: var(--font-primary);
   letter-spacing: 0.17em;
-  line-height: 1.5;
+  line-height: 1.2;
 }
 
 .pkic-loader__brand span:last-child {
-  color: var(--loader-accent);
+  color: var(--color-accent);
 }
 
 .pkic-loader__tagline {
@@ -174,7 +190,8 @@ body.pkic-scroll-locked {
 
   color: var(--loader-muted);
 
-  font-size: 12px;
+  font-size: 0.7rem;
+  font-family: var(--font-secondary);
   letter-spacing: 0.04em;
 }
 
@@ -203,7 +220,7 @@ body.pkic-scroll-locked {
 
   border-radius: inherit;
 
-  background: linear-gradient(90deg, #d6a443, #f3d58d);
+  background: linear-gradient(90deg, var(--color-accent), #f3d58d);
 
   animation: pkic-progress 1.35s cubic-bezier(0.65, 0, 0.35, 1) infinite;
 }
@@ -215,6 +232,7 @@ body.pkic-scroll-locked {
 
   font-size: 9px;
   font-weight: 600;
+  font-family: var(--font-secondary);
   letter-spacing: 0.22em;
 }
 
@@ -269,10 +287,14 @@ body.pkic-scroll-locked {
    LOADER EXIT
 ================================= */
 
-.pkic-loader.is-hidden {
+.pkic-loader__content.is-also-hidden {
   opacity: 0;
+}
+
+.pkic-loader.is-hidden {
   visibility: hidden;
   pointer-events: none;
+  transform: translateY(-110%);
 }
 
 /* Respect reduced-motion preferences */
@@ -281,6 +303,10 @@ body.pkic-scroll-locked {
     animation: none !important;
     transition: none !important;
   }
+}
+
+.eyebrow span{
+  animation: flicker 1.9s linear infinite;
 }
 
 .hero__heading .heading-line {
@@ -297,15 +323,18 @@ body.pkic-scroll-locked {
 }
 
 .hero__heading .heading-line:nth-child(1) .line-inner {
-  animation-delay: 0.15s;
+  /* animation-delay: 0.15s; */
+  animation-delay: 1.45s;
 }
 
 .hero__heading .heading-line:nth-child(3) .line-inner {
-  animation-delay: 0.3s;
+  /* animation-delay: 0.3s; */
+  animation-delay: 1.60s;
 }
 
 .hero__heading .heading-line:nth-child(5) .line-inner {
-  animation-delay: 0.45s;
+  /* animation-delay: 0.45s; */
+  animation-delay: 1.75s;
 }
 
 .hero__highlighted {
@@ -324,7 +353,7 @@ body.pkic-scroll-locked {
   background: currentColor;
   transform: scaleX(0);
   transform-origin: left;
-  animation: highlightReveal 0.6s ease 1.1s forwards;
+  animation: highlightReveal 0.6s ease 2.2s forwards;
 }
 
 @keyframes headingReveal {
@@ -354,7 +383,7 @@ body.pkic-scroll-locked {
 }
 
 .subtitle {
-  animation: title-reveal 0.8s ease-out 0.3s both;
+  animation: title-reveal 0.8s ease-out 2s both;
 }
 
 .quote {
@@ -374,5 +403,17 @@ body.pkic-scroll-locked {
     opacity: 1;
     transform: translateY(0);
     filter: blur(0);
+  }
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
   }
 }
