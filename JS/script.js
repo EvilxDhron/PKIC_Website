@@ -1,6 +1,14 @@
 "use strict";
 
+// loader
+const loader = document.querySelector("#pkic-loader");
+
+// hero headings
 const heading = document.querySelector(".hero__heading");
+heading.style.opacity = 0;
+
+const subheading = document.querySelector(".hero__subheading");
+subheading.style.opacity = 0;
 
 /* Sidebar elements */
 
@@ -18,19 +26,35 @@ const noticeCards = document.querySelectorAll(".notice__card");
 
 const gallery = document.querySelector(".schoollife__gallery");
 
-heading.innerHTML = heading.innerHTML
-  .replace(
-    "Where every child",
-    '<span class="heading-line"><span class="line-inner">Where every child</span></span>',
-  )
-  .replace(
-    "learns to lead with",
-    '<span class="heading-line"><span class="line-inner">learns to lead with</span></span>',
-  )
-  .replace(
-    '<span class="hero__highlighted">confidence</span>',
-    '<span class="heading-line"><span class="line-inner"><span class="hero__highlighted">confidence</span></span></span>',
-  );
+const animateHeading = (entries, observer) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) return;
+    heading.innerHTML = heading.innerHTML
+      .replace(
+        "Where every child",
+        '<span class="heading-line"><span class="line-inner">Where every child</span></span>',
+      )
+      .replace(
+        "learns to lead with",
+        '<span class="heading-line"><span class="line-inner">learns to lead with</span></span>',
+      )
+      .replace(
+        '<span class="hero__highlighted">confidence</span>',
+        '<span class="heading-line"><span class="line-inner"><span class="hero__highlighted">confidence</span></span></span>',
+      );
+    heading.style.opacity = 1;
+    subheading.classList.add("subtitle");
+    subheading.style.opacity = 1;
+    observer.unobserve(loader);
+  });
+};
+
+const loaderObserver = new IntersectionObserver(animateHeading, {
+  root: null,
+  threshold: 0,
+});
+
+loaderObserver.observe(loader);
 
 const handleCards = (entries, observer) => {
   entries.forEach((entry) => {

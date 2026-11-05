@@ -305,7 +305,7 @@ body.pkic-scroll-locked {
   }
 }
 
-.eyebrow span{
+.eyebrow span {
   animation: flicker 1.9s linear infinite;
 }
 
@@ -323,18 +323,18 @@ body.pkic-scroll-locked {
 }
 
 .hero__heading .heading-line:nth-child(1) .line-inner {
-  /* animation-delay: 0.15s; */
-  animation-delay: 1.45s;
+  animation-delay: 0.11s;
+  /* animation-delay: 1.45s; */
 }
 
 .hero__heading .heading-line:nth-child(3) .line-inner {
-  /* animation-delay: 0.3s; */
-  animation-delay: 1.60s;
+  animation-delay: 0.29s;
+  /* animation-delay: 1.60s; */
 }
 
 .hero__heading .heading-line:nth-child(5) .line-inner {
-  /* animation-delay: 0.45s; */
-  animation-delay: 1.75s;
+  animation-delay: 0.39s;
+  /* animation-delay: 1.75s; */
 }
 
 .hero__highlighted {
@@ -353,7 +353,7 @@ body.pkic-scroll-locked {
   background: currentColor;
   transform: scaleX(0);
   transform-origin: left;
-  animation: highlightReveal 0.6s ease 2.2s forwards;
+  animation: highlightReveal 0.6s ease 0.7s forwards;
 }
 
 @keyframes headingReveal {
@@ -383,7 +383,7 @@ body.pkic-scroll-locked {
 }
 
 .subtitle {
-  animation: title-reveal 0.8s ease-out 2s both;
+  animation: title-reveal 0.8s ease-out 0.7s both;
 }
 
 .quote {
