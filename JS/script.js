@@ -10,6 +10,10 @@ heading.style.opacity = 0;
 const subheading = document.querySelector(".hero__subheading");
 subheading.style.opacity = 0;
 
+// Statistics
+const statisticsSection = document.querySelector(".statistics");
+const allStats = document.querySelectorAll(".stat__num");
+
 /* Sidebar elements */
 
 const sidebar = document.querySelector(".sidebar");
@@ -26,7 +30,19 @@ const noticeCards = document.querySelectorAll(".notice__card");
 
 const gallery = document.querySelector(".schoollife__gallery");
 
-const animateHeading = (entries, observer) => {
+const animateStats = (elem, times) => {
+  let timer;
+  let counter = 0;
+  return (timer = setInterval(() => {
+    elem.innerText = `${counter}+`;
+    counter++;
+    if (counter > times) {
+      clearTimeout(timer);
+    }
+  }, 10));
+};
+
+const animateHero = (entries, observer) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) return;
     heading.innerHTML = heading.innerHTML
@@ -42,19 +58,37 @@ const animateHeading = (entries, observer) => {
         '<span class="hero__highlighted">confidence</span>',
         '<span class="heading-line"><span class="line-inner"><span class="hero__highlighted">confidence</span></span></span>',
       );
+
     heading.style.opacity = 1;
     subheading.classList.add("subtitle");
     subheading.style.opacity = 1;
+
     observer.unobserve(loader);
   });
 };
 
-const loaderObserver = new IntersectionObserver(animateHeading, {
+const handleStats = (entries, observer) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    allStats.forEach((stat) => {
+      animateStats(stat, parseInt(stat.innerText));
+    });
+    observer.unobserve(statisticsSection);
+  });
+};
+
+const loaderObserver = new IntersectionObserver(animateHero, {
   root: null,
   threshold: 0,
 });
 
+const statsObserver = new IntersectionObserver(handleStats, {
+  root: null,
+  threshold: 0.9,
+});
+
 loaderObserver.observe(loader);
+statsObserver.observe(statisticsSection);
 
 const handleCards = (entries, observer) => {
   entries.forEach((entry) => {
