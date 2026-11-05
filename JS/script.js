@@ -1,14 +1,23 @@
 "use strict";
 
+// Locomotive JS
+const locoScroll = new LocomotiveScroll({
+  el: document.querySelector("body"),
+  smooth: true,
+});
+
 // loader
 const loader = document.querySelector("#pkic-loader");
 
 // hero headings
+const eyebrow = document.querySelectorAll(".eyebrow");
 const heading = document.querySelector(".hero__heading");
 heading.style.opacity = 0;
-
 const subheading = document.querySelector(".hero__subheading");
 subheading.style.opacity = 0;
+
+// All icons
+const allIcons = document.querySelectorAll(".icon");
 
 // Statistics
 const statisticsSection = document.querySelector(".statistics");
@@ -153,6 +162,32 @@ const showPhoto = (event) => {
     }
   };
 };
+
+const handleIcons = (event, elem) => {
+  return () => {
+    elem.classList.add("animate__animated", "animate__rubberBand");
+    setTimeout(() => {
+      elem.classList.remove("animate__animated", "animate__rubberBand");
+    }, 1000);
+  };
+};
+
+const handleEyebrow = (event, elem) => {
+  return () => {
+    elem.classList.add("animate__animated", "animate__hinge");
+    setTimeout(() => {
+      elem.classList.remove("animate__animated", "animate__hinge");
+    }, 3000);
+  };
+};
+
+eyebrow.forEach((elem) => {
+  elem.addEventListener("click", handleEyebrow(event, elem));
+});
+
+allIcons.forEach((elem) => {
+  elem.addEventListener("click", handleIcons(event, elem));
+});
 
 hamBtn.addEventListener("click", handleSidebar);
 
