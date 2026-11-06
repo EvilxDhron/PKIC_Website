@@ -1,3 +1,5 @@
+// Fixed with the help of AI
+
 (() => {
   const loader = document.querySelector("#pkic-loader");
   const loaderContent = document.querySelector(".pkic-loader__content");
@@ -14,70 +16,134 @@
 
   const MINIMUM_DISPLAY_TIME = 800;
   const TRANSITION_TIME = 1600;
+  const MAX_WAIT_TIME = 60000; // 60s safety fallback for slow mobile connections
 
   const startTime = performance.now();
 
   let isCancelled = false;
   let isFinishing = false;
 
-  // Collect all images currently present in the HTML
+  // Prevent background scrolling while loader is active
+  document.body.classList.add("pkic-scroll-locked");
+
+  // Collect all images and force them to start downloading immediately
   const images = [...document.images];
 
-  // Force lazy images to load before revealing the website.
-  // Note: This disables lazy loading for these images.
   images.forEach((image) => {
+    // Support data-src / data-srcset if used in HTML
+    if (image.dataset.src && !image.getAttribute("src")) {
+      image.src = image.dataset.src;
+    }
+    if (image.dataset.srcset && !image.getAttribute("srcset")) {
+      image.srcset = image.dataset.srcset;
+    }
+
     image.loading = "eager";
   });
 
-  // Prevent background scrolling
-  document.body.classList.add("pkic-scroll-locked");
-
-  // Wait until the browser finishes loading page resources
+  // Wait until the browser finishes loading core page resources
   function waitForWindowLoad() {
     if (document.readyState === "complete") {
       return Promise.resolve();
     }
 
     return new Promise((resolve) => {
-      window.addEventListener("load", resolve, {
-        once: true,
-      });
+      window.addEventListener("load", resolve, { once: true });
     });
   }
 
-  // Wait for every image to finish decoding
-  async function waitForImages() {
-    const results = await Promise.all(
-      images.map(async (image) => {
-        if (!image.currentSrc && !image.src) {
-          return { success: true };
-        }
+  // Wait for a single image to completely download AND decode (with retry for slow networks)
+  function waitForSingleImage(image, retries = 2) {
+    return new Promise((resolve) => {
+      const src = image.currentSrc || image.src;
+      if (!src) {
+        resolve({ success: true });
+        return;
+      }
 
+      const decodeAndFinish = async () => {
         try {
-          await image.decode();
-
-          return { success: true };
+          if (typeof image.decode === "function") {
+            await image.decode();
+          }
+          resolve({ success: true });
         } catch {
-          return {
+          // If decode() fails (e.g. certain SVGs) but the image has valid dimensions, it is ready
+          if (image.naturalWidth > 0) {
+            resolve({ success: true });
+          } else {
+            retryOrFail();
+          }
+        }
+      };
+
+      const retryOrFail = () => {
+        if (retries > 0 && !isCancelled) {
+          // Retry loading the image after a brief pause if slow mobile data dropped it
+          window.setTimeout(() => {
+            const rawSrc = image.getAttribute("src");
+            if (rawSrc) {
+              const separator = rawSrc.includes("?") ? "&" : "?";
+              image.src = `${rawSrc}${separator}retry=${3 - retries}`;
+            }
+            waitForSingleImage(image, retries - 1).then(resolve);
+          }, 600);
+        } else {
+          resolve({
             success: false,
             source: image.currentSrc || image.src,
-          };
+          });
         }
-      }),
+      };
+
+      // Check if the image has already finished downloading
+      if (image.complete) {
+        if (image.naturalWidth > 0) {
+          decodeAndFinish();
+        } else {
+          retryOrFail();
+        }
+        return;
+      }
+
+      // Otherwise, wait specifically for this image's network download to finish
+      const onLoad = () => {
+        cleanup();
+        decodeAndFinish();
+      };
+
+      const onError = () => {
+        cleanup();
+        retryOrFail();
+      };
+
+      const cleanup = () => {
+        image.removeEventListener("load", onLoad);
+        image.removeEventListener("error", onError);
+      };
+
+      image.addEventListener("load", onLoad, { once: true });
+      image.addEventListener("error", onError, { once: true });
+    });
+  }
+
+  // Wait for every image on the page
+  async function waitForImages() {
+    const results = await Promise.all(
+      images.map((image) => waitForSingleImage(image)),
     );
 
     return results.filter((result) => !result.success);
   }
 
-  // Wait for all required resources
+  // Wait for HTML/CSS/JS, fonts, and all images
   async function waitForEverything() {
-    // 1. HTML, CSS, JS and eager-loaded resources
     await waitForWindowLoad();
 
-    // 2. Fonts and completed layout
-    await document.fonts.ready;
+    if (document.fonts && document.fonts.ready) {
+      await document.fonts.ready;
+    }
 
-    // 3. Image downloading and decoding
     const failedImages = await waitForImages();
 
     if (failedImages.length) {
@@ -85,37 +151,48 @@
     }
   }
 
-  // Reveal the website when everything is ready
+  // Safety fallback so a permanently broken URL doesn't freeze the site forever
+  function waitForMaxTimeout() {
+    return new Promise((resolve) => {
+      window.setTimeout(() => {
+        console.warn("Loader max wait time reached; revealing page.");
+        resolve();
+      }, MAX_WAIT_TIME);
+    });
+  }
+
+  // Reveal the website only when everything is ready
   async function finishLoading() {
     if (isFinishing || isCancelled) return;
-
-    await waitForEverything();
-
-    if (isCancelled) return;
-
     isFinishing = true;
 
-    // Avoid a loader that disappears too quickly
-    const elapsed = performance.now() - startTime;
-
-    const remainingTime = Math.max(0, MINIMUM_DISPLAY_TIME - elapsed);
-
-    await new Promise((resolve) => {
-      window.setTimeout(resolve, remainingTime);
-    });
+    await Promise.race([waitForEverything(), waitForMaxTimeout()]);
 
     if (isCancelled) return;
 
-    // Start the fade-out animation
+    // Ensure minimum display time so the loader doesn't flash too fast
+    const elapsed = performance.now() - startTime;
+    const remainingTime = Math.max(0, MINIMUM_DISPLAY_TIME - elapsed);
+
+    if (remainingTime > 0) {
+      await new Promise((resolve) => {
+        window.setTimeout(resolve, remainingTime);
+      });
+    }
+
+    if (isCancelled) return;
+
+    // Start fade-out animation and unlock scrolling
     loader.classList.add("is-hidden");
-    loaderContent.classList.add("is-also-hidden");
+    loaderContent?.classList.add("is-also-hidden");
     loader.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("pkic-scroll-locked");
 
-    // Remove loader after transition completes
+    // Remove loader from DOM after transition completes
     window.setTimeout(() => {
-      loader.remove();
-
-      document.body.classList.remove("pkic-scroll-locked");
+      if (!isCancelled) {
+        loader.remove();
+      }
     }, TRANSITION_TIME);
   }
 
@@ -123,9 +200,7 @@
   mobileView.addEventListener("change", (event) => {
     if (!event.matches) {
       isCancelled = true;
-
       loader.remove();
-
       document.body.classList.remove("pkic-scroll-locked");
     }
   });
