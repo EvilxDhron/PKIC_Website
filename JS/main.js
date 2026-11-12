@@ -1,5 +1,7 @@
 "use strict";
 
+import "./loader.js";
+
 // Locomotive JS
 const locoScroll = new LocomotiveScroll({
   el: document.querySelector("main"),

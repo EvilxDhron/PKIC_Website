@@ -132,11 +132,10 @@ body.pkic-scroll-locked {
 .pkic-loader__core {
   display: grid;
   place-items: center;
-  padding: 4px;
   box-sizing: content-box;
 
-  width: 68px;
-  height: 68px;
+  width: 60px;
+  height: 60px;
 
   border-radius: 50%;
 
