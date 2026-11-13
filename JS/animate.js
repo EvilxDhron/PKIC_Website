@@ -25,7 +25,7 @@ gsap.from(".acad__card", {
     scroller: "body",
     scrub: 2,
     start: "top 10%",
-    end: "top -150%",
+    end: "top -200%",
     pin: true,
   },
 });
