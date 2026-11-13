@@ -250,7 +250,7 @@
       <div class="sidebar__backdrop backdrop__hide"></div>
     </header>
 
-    <main class="main">
+    <main class="main" data-scroll data-scroll-enable-touch-speed>
       <section class="section__hero section">
         <div class="hero__container section__container">
           <div class="hero__content">
@@ -856,7 +856,19 @@
       </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.1/gsap.min.js"
+      integrity="sha512-VMHB/Dy1/3d+djJPdMhxbplbZgbfPNHy+yWCxB1MSrwUEcNE+gnviL/DwlGsh9wwobnRTiQc6ChK2ZoJamshXA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.1/ScrollTrigger.js"
+      integrity="sha512-4iHDKNbMvI3vN8PaG2om0+XXbn4BKjhdoi/Tnn8P7EBmqitPjNxGwtykyQOMcUGX+KbUQ0jHrBipOGfgE6Dkww=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
     <script type="module" src="./JS/main.js"></script>
   </body>
 </html>

@@ -483,6 +483,7 @@ a {
 
 .main {
   width: 100%;
+  overflow-x: hidden;
 }
 
 .section__hero {
@@ -627,7 +628,9 @@ a {
       0 4px 12px color-mix(in srgb, var(--color-brand) 6%, transparent),
       0 8px 16px rgba(0, 0, 0, 0.12);
     opacity: 1;
-    transition: all 0.3s ease-in-out;
+    position: relative;
+    transform: translateY(0);
+    /* transition: all 0.3s ease-in-out; */
 
     .card__title {
       color: var(--color-brand);

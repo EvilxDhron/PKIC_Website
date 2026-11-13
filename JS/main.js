@@ -1,12 +1,14 @@
 "use strict";
 
+import "./animate.js";
 import "./loader.js";
 
+// Connected at animate.js
 // Locomotive JS
-const locoScroll = new LocomotiveScroll({
+/* const locoScroll = new LocomotiveScroll({
   el: document.querySelector("main"),
   smooth: true,
-});
+}); */
 
 // loader
 const loader = document.querySelector("#pkic-loader");
@@ -35,7 +37,6 @@ const sidebarCloseBtn = document.querySelector(".sidebar__close-btn");
 /* All Card elements */
 
 const cards = document.querySelectorAll(".acad__card");
-const whyCards = document.querySelectorAll(".why-card");
 const facilityCards = document.querySelectorAll(".facility");
 const noticeCards = document.querySelectorAll(".notice__card");
 
