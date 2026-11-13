@@ -35,8 +35,6 @@ const hamBtn = document.querySelector(".hamburger__btn");
 const sidebarCloseBtn = document.querySelector(".sidebar__close-btn");
 
 /* All Card elements */
-
-const cards = document.querySelectorAll(".acad__card");
 const facilityCards = document.querySelectorAll(".facility");
 const noticeCards = document.querySelectorAll(".notice__card");
 
@@ -120,8 +118,6 @@ const animateCards = (cards) => {
     cardObserver.observe(card);
   });
 };
-animateCards(cards);
-animateCards(whyCards);
 animateCards(facilityCards);
 animateCards(noticeCards);
 

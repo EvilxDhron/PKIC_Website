@@ -666,19 +666,24 @@ a {
 }
 
 .academics__cards {
-  display: grid;
-  gap: 1.5rem;
+  /* display: grid;
+  gap: 1.5rem; */
+  display: block;
   padding: 1rem 0;
+  position: relative;
+  height: 350px;
 
   .acad__card {
+    position: absolute;
+    top: 1rem;
+    margin-bottom: 1.5rem;
+    z-index: 1;
     background-color: #e4f3f0;
     padding: 1.5rem;
     border-radius: 1.5rem;
     display: inline-grid;
     grid-template-columns: 1fr min-content;
     row-gap: 0.8rem;
-    opacity: 1;
-    transition: all 0.3s ease-in-out;
 
     .card__number {
       grid-column: 2/3;
@@ -755,6 +760,8 @@ a {
 }
 
 .acad__card:nth-child(2) {
+  top: 1.75rem;
+  z-index: 2;
   background-color: #fff8ea;
 
   .card__number {
@@ -773,6 +780,8 @@ a {
 }
 
 .acad__card:nth-child(3) {
+  top: 2.5rem;
+  z-index: 3;
   background-color: #eaf1fb;
 
   .card__number {
@@ -788,6 +797,11 @@ a {
       background-color: #2a5aa6;
     }
   }
+}
+
+.acad__card:nth-child(4) {
+  top: 3.25rem;
+  z-index: 4;
 }
 
 .section__message {

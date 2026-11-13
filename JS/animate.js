@@ -15,3 +15,17 @@ tlCards.from(".why-card", {
   opacity: 0,
   stagger: 0.3,
 });
+
+gsap.from(".acad__card", {
+  y: 300,
+  opacity: 0,
+  stagger: 0.7,
+  scrollTrigger: {
+    trigger: ".section__academics",
+    scroller: "body",
+    scrub: 2,
+    start: "top 10%",
+    end: "top -150%",
+    pin: true,
+  },
+});
