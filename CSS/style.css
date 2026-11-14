@@ -162,6 +162,7 @@ a {
     font-family: var(--font-secondary);
     font-size: var(--size-description);
     width: min(350px, 90%);
+    margin: 1rem 0;
   }
 }
 

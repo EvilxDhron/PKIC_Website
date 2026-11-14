@@ -51,3 +51,17 @@ gsap.from("blockquote p span", {
     end: "top 30%",
   },
 });
+
+gsap.utils.toArray(".headings__kicker").forEach((kicker) => {
+  gsap.from(kicker, {
+    y: -50,
+    opacity: 0,
+    duration: 1,
+    ease: "bounce.out",
+    scrollTrigger: {
+      trigger: kicker,
+      start: "top 50%",
+      toggleActions: "restart none none reverse",
+    },
+  });
+});
