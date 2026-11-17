@@ -84,7 +84,7 @@ gsap.utils.toArray(".headings__title").forEach((title) => {
     y: 30,
     opacity: 0,
     stagger: 0.01,
-    ease: "power3.out",
+    ease: "back.out(1.7)",
     scrollTrigger: {
       trigger: title,
       start: "top 70%",
