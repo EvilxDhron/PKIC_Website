@@ -157,6 +157,10 @@ a {
     font-size: var(--size-heading);
   }
 
+  .headings__title span {
+    display: inline-block;
+  }
+
   .headings__intro {
     color: var(--color-text-tertiary);
     font-family: var(--font-secondary);

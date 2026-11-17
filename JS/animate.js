@@ -1,6 +1,7 @@
 gsap.registerPlugin(ScrollTrigger);
 
 const allP = document.querySelectorAll("blockquote p");
+const allTitles = document.querySelectorAll(".headings__title");
 
 allP.forEach((sentence) => {
   let clutter = "";
@@ -8,6 +9,18 @@ allP.forEach((sentence) => {
     clutter += `<span>${char}</span>`;
   });
   sentence.innerHTML = clutter;
+});
+
+allTitles.forEach((title) => {
+  let clutter = "";
+  title.innerText.split("").forEach((char) => {
+    if (char === " ") {
+      clutter += `<span>&nbsp;<span/>`;
+    } else {
+      clutter += `<span>${char}</span>`;
+    }
+  });
+  title.innerHTML = clutter;
 });
 
 const tlCards = gsap.timeline({
@@ -60,7 +73,21 @@ gsap.utils.toArray(".headings__kicker").forEach((kicker) => {
     ease: "bounce.out",
     scrollTrigger: {
       trigger: kicker,
-      start: "top 50%",
+      start: "top 60%",
+      toggleActions: "restart none none reverse",
+    },
+  });
+});
+
+gsap.utils.toArray(".headings__title").forEach((title) => {
+  gsap.from(title.querySelectorAll("span"), {
+    y: 30,
+    opacity: 0,
+    stagger: 0.01,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: title,
+      start: "top 70%",
       toggleActions: "restart none none reverse",
     },
   });
