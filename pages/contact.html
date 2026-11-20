@@ -3,9 +3,105 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/Assets/Images/PKIC_LOGO_LITE.png"
+    />
     <title>PKIC | Contact Us</title>
+
+    <meta name="application-name" content="PKIC Mirzapur" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
+    <link rel="stylesheet" href="/CSS/style.css" />
+    <link rel="stylesheet" href="/CSS/pages/contact.css" />
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.1/gsap.min.js"
+      integrity="sha512-VMHB/Dy1/3d+djJPdMhxbplbZgbfPNHy+yWCxB1MSrwUEcNE+gnviL/DwlGsh9wwobnRTiQc6ChK2ZoJamshXA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.1/ScrollTrigger.js"
+      integrity="sha512-4iHDKNbMvI3vN8PaG2om0+XXbn4BKjhdoi/Tnn8P7EBmqitPjNxGwtykyQOMcUGX+KbUQ0jHrBipOGfgE6Dkww=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      defer
+    ></script>
+
+    <script defer type="module" src="/JS/main.js"></script>
   </head>
   <body>
-    <h1>Contact Us Page...</h1>
+    <!-- PKIC Mobile Loader -->
+    <div
+      class="pkic-loader"
+      id="pkic-loader"
+      role="status"
+      aria-live="polite"
+      aria-label="Loading PKIC website"
+      data-include="/components/loader.html"
+    ></div>
+
+    <header class="header" data-include="/components/navbar.html"></header>
+
+    <main class="main">
+      <section id="section__contact--hero" class="section">
+        <div id="contact--hero__headings" class="sections__headings">
+          <p id="contact--hero__kicker" class="headings__kicker">CONTACT</p>
+          <h2 id="contact--hero__title" class="headings__title">Contact Us</h2>
+          <p id="contact--hero__intro" class="headings__intro">
+            Visit the school office, call us or send a message on WhatsApp.
+          </p>
+        </div>
+      </section>
+
+      <section id="section__contact--actions">
+        <div class="contact--actions__container">
+          <a href="#" class="actions action__call">
+            <img src="/Assets/Images/Icon _ phone.png" alt="">
+            <p>Call</p>
+            <p>8376958340</p>
+            <img src="/Assets/Images/right-arrow.png" alt="">
+          </a>
+          <a href="#" class="action__whatsapp actions">
+            <img src="/Assets/Images/Icon _ phone.png" alt="">
+            <p>Call</p>
+            <p>8376958340</p>
+            <img src="/Assets/Images/right-arrow.png" alt="">
+          </a>
+          <a href="#" class="action__email actions">
+            <img src="/Assets/Images/Icon _ phone.png" alt="">
+            <p>Call</p>
+            <p>8376958340</p>
+            <img src="/Assets/Images/right-arrow.png" alt="">
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer
+      class="footer section"
+      data-include="/components/footer.html"
+    ></footer>
   </body>
 </html>

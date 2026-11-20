@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.section {
+  justify-content: left;
+}
+
+#section__contact--hero {
+  width: 100%;
+  background: var(--color-brand);
+}
+
+#contact--hero__kicker {
+  color: var(--color-accent);
+}
+
+#contact--hero__title {
+  color: var(--color-primary);
+  font-size: 1.75rem;
+}
+
+#contact--hero__intro {
+  font: 200 var(--size-subheading) var(--font-secondary);
+  color: var(--color-text-on-dark);
+}
