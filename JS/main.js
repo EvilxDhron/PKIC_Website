@@ -3,13 +3,6 @@
 import "./animate.js";
 import "./loader.js";
 
-// Connected at animate.js
-// Locomotive JS
-/* const locoScroll = new LocomotiveScroll({
-  el: document.querySelector("main"),
-  smooth: true,
-}); */
-
 // loader
 const loader = document.querySelector("#pkic-loader");
 
@@ -29,16 +22,126 @@ const allStats = document.querySelectorAll(".stat__num");
 
 /* Sidebar elements */
 
-const sidebar = document.querySelector(".sidebar");
 const sidebarBackdrop = document.querySelector(".sidebar__backdrop");
-const hamBtn = document.querySelector(".hamburger__btn");
-const sidebarCloseBtn = document.querySelector(".sidebar__close-btn");
 
 /* All Card elements */
 const facilityCards = document.querySelectorAll(".facility");
 const noticeCards = document.querySelectorAll(".notice__card");
 
-const gallery = document.querySelector(".schoollife__gallery");
+async function loadComponents() {
+  const components = document.querySelectorAll("[data-include]");
+
+  await Promise.all(
+    [...components].map(async (element) => {
+      const response = await fetch(element.dataset.include);
+
+      if (!response.ok) {
+        throw new Error(`Failed to load: ${element.dataset.include}`);
+      }
+
+      element.innerHTML = await response.text();
+    }),
+  );
+}
+
+function initNavbar() {
+  const sidebar = document.querySelector(".sidebar");
+  const sidebarBackdrop = document.querySelector(".sidebar__backdrop");
+  const hamBtn = document.querySelector(".hamburger__btn");
+  const sidebarCloseBtn = document.querySelector(".sidebar__close-btn");
+
+  if (!sidebar || !sidebarBackdrop || !hamBtn || !sidebarCloseBtn) return;
+
+  const openSidebar = () => {
+    sidebar.classList.remove("sidebar__hide");
+    sidebarBackdrop.classList.remove("backdrop__hide");
+  };
+
+  const closeSidebar = () => {
+    sidebar.classList.add("sidebar__hide");
+    sidebarBackdrop.classList.add("backdrop__hide");
+  };
+
+  hamBtn.addEventListener("click", openSidebar);
+  sidebarCloseBtn.addEventListener("click", closeSidebar);
+  sidebarBackdrop.addEventListener("click", closeSidebar);
+
+  sidebar.addEventListener("click", (event) => {
+    event.preventDefault();
+    const link = event.target.closest(".sidebar__link");
+
+    if (!link) return;
+
+    let href = link.getAttribute("href");
+    href = href.slice(href.indexOf("#"));
+
+    // Allow navigation to other pages normally.
+    if (!href || !href.startsWith("#")) return;
+
+    const section = document.querySelector(href);
+
+    if (!section) return;
+
+    event.preventDefault();
+
+    section.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+
+    closeSidebar();
+
+    window.addEventListener(
+      "scroll",
+      () => {
+        document
+          .querySelector(".active--photo")
+          ?.classList.remove("active--photo");
+        closeSidebar();
+      },
+      { passive: true },
+    );
+  });
+}
+
+function initGallery() {
+  // gallery
+  const gallery = document.querySelector(".schoollife__gallery");
+  const sidebarBackdrop = document.querySelector(".sidebar__backdrop");
+
+  if (!gallery || !sidebarBackdrop) return;
+
+  const removeActivePhoto = () => {
+    gallery.querySelector(".active--photo")?.classList.remove("active--photo");
+    gallery
+      .querySelector(".active--caption")
+      ?.classList.remove("active--caption");
+  };
+
+  const showPhoto = (event) => {
+    const photo = event.target.closest(".gallery__photo");
+    removeActivePhoto();
+    if (photo) {
+      photo.classList.add("active--photo");
+      sidebarBackdrop.classList.remove("backdrop__hide");
+    }
+  };
+
+  gallery.addEventListener("click", showPhoto);
+  sidebarBackdrop.addEventListener("click", removeActivePhoto);
+}
+
+async function init() {
+  try {
+    await loadComponents();
+    initNavbar();
+    initGallery();
+  } catch (error) {
+    console.error("Website initialization failed:", error);
+  }
+}
+
+init();
 
 const animateStats = (elem, times) => {
   let timer;
@@ -121,47 +224,6 @@ const animateCards = (cards) => {
 animateCards(facilityCards);
 animateCards(noticeCards);
 
-const handleSidebar = () => {
-  sidebar.classList.toggle("sidebar__hide");
-  sidebarBackdrop.classList.toggle("backdrop__hide");
-};
-
-const handleBackdrop = () => {
-  sidebar.classList.add("sidebar__hide");
-  sidebarBackdrop.classList.add("backdrop__hide");
-  document.querySelector(".active--photo")?.classList.remove("active--photo");
-};
-
-const goToSection = (event) => {
-  return (event) => {
-    event.preventDefault();
-    const link = event.target.closest(".sidebar__link");
-    if (!link) return;
-    const section = document.querySelector(`${link.getAttribute("href")}`);
-    if (!section) return;
-    section.scrollIntoView({ behavior: "smooth", block: "start" });
-    handleSidebar();
-  };
-};
-
-const removeActivePhoto = () => {
-  gallery.querySelector(".active--photo")?.classList.remove("active--photo");
-  gallery
-    .querySelector(".active--caption")
-    ?.classList.remove("active--caption");
-};
-
-const showPhoto = (event) => {
-  return (event) => {
-    const photo = event.target.closest(".gallery__photo");
-    removeActivePhoto();
-    if (photo) {
-      photo.classList.add("active--photo");
-      sidebarBackdrop.classList.remove("backdrop__hide");
-    }
-  };
-};
-
 const handleIcons = (event, elem) => {
   return () => {
     elem.classList.add("animate__animated", "animate__rubberBand");
@@ -187,22 +249,3 @@ eyebrow.forEach((elem) => {
 allIcons.forEach((elem) => {
   elem.addEventListener("click", handleIcons(event, elem));
 });
-
-hamBtn.addEventListener("click", handleSidebar);
-
-sidebarCloseBtn.addEventListener("click", handleSidebar);
-
-sidebarBackdrop.addEventListener("click", handleBackdrop);
-
-sidebar.addEventListener("click", goToSection(event));
-
-gallery.addEventListener("click", showPhoto(event));
-
-window.addEventListener(
-  "scroll",
-  () => {
-    document.querySelector(".active--photo")?.classList.remove("active--photo");
-    handleBackdrop();
-  },
-  { passive: true },
-);

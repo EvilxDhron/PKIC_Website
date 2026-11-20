@@ -38,6 +38,23 @@
     />
 
     <link rel="stylesheet" href="./CSS/style.css" />
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.1/gsap.min.js"
+      integrity="sha512-VMHB/Dy1/3d+djJPdMhxbplbZgbfPNHy+yWCxB1MSrwUEcNE+gnviL/DwlGsh9wwobnRTiQc6ChK2ZoJamshXA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.1/ScrollTrigger.js"
+      integrity="sha512-4iHDKNbMvI3vN8PaG2om0+XXbn4BKjhdoi/Tnn8P7EBmqitPjNxGwtykyQOMcUGX+KbUQ0jHrBipOGfgE6Dkww=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      defer
+    ></script>
+
+    <script defer type="module" src="./JS/main.js"></script>
   </head>
   <body>
     <!-- PKIC Mobile Loader -->
@@ -47,211 +64,13 @@
       role="status"
       aria-live="polite"
       aria-label="Loading PKIC website"
-    >
-      <div class="pkic-loader__content">
-        <!-- Animated logo -->
-        <div class="pkic-loader__logo">
-          <span
-            class="pkic-loader__orbit pkic-loader__orbit--outer"
-            aria-hidden="true"
-          ></span>
+      data-include="components/loader.html"
+    ></div>
 
-          <span
-            class="pkic-loader__orbit pkic-loader__orbit--inner"
-            aria-hidden="true"
-          ></span>
-
-          <div class="pkic-loader__core">
-            <span
-              ><img src="./Assets/Images/PKIC_LOGO_LITE.png" alt="LOGO"
-            /></span>
-          </div>
-        </div>
-
-        <!-- School branding -->
-        <p class="pkic-loader__brand">
-          <span>PUBLIC KANYA</span>
-          <span>INTER COLLEGE</span>
-        </p>
-
-        <p class="pkic-loader__tagline">A place to learn, lead & grow.</p>
-
-        <!-- Loading indicator -->
-        <div class="pkic-loader__progress">
-          <span></span>
-        </div>
-
-        <p class="pkic-loader__status">PREPARING YOUR EXPERIENCE</p>
-      </div>
-    </div>
-
-    <header class="header">
-      <nav class="navbar">
-        <div class="logo__container">
-          <img
-            class="logo__img"
-            src="./Assets/Images/PKIC_LOGO.png"
-            alt="PKIC LOGO"
-          />
-          <p class="logo__text">PKIC Mirzapur</p>
-        </div>
-        <button class="hamburger__btn">
-          <img
-            class="hamburger__btn__img"
-            src="./Assets/Images/menu-bar.png"
-            alt="MENU"
-          />
-        </button>
-      </nav>
-
-      <aside class="sidebar sidebar__hide">
-        <div class="sidebar__header">
-          <div class="sidebar__branding">
-            <img
-              class="sidebar__logo"
-              src="./Assets/Images/PKIC_LOGO.png"
-              alt="PKIC LOGO"
-            />
-
-            <h2 class="sidebar__title">PKIC Mirzapur</h2>
-            <p class="sidebar__subtitle">Public Kanya Inter College</p>
-          </div>
-          <button
-            class="sidebar__close-btn"
-            type="button"
-            aria-label="Close sidebar"
-          >
-            <img class="closepng" src="./Assets/Images/close.png" alt="" />
-          </button>
-        </div>
-
-        <div class="sidebar__links">
-          <ul class="sidebar__links__container">
-            <li class="sidebar__item">
-              <a class="sidebar__link" href=".section__hero">
-                <span class="link__title">Home</span>
-                <p class="link__description">Start here</p>
-                <img class="rightArrow" src="./Assets/Images/next.png" alt="" />
-              </a>
-            </li>
-            <li class="sidebar__item">
-              <a class="sidebar__link" href=".section__choose">
-                <span class="link__title">About</span>
-                <p class="link__description">Our story and values</p>
-                <img class="rightArrow" src="./Assets/Images/next.png" alt="" />
-              </a>
-            </li>
-            <li class="sidebar__item">
-              <a class="sidebar__link" href=".section__academics">
-                <span class="link__title">Academics</span>
-                <p class="link__description">Nursery to Class 12</p>
-                <img class="rightArrow" src="./Assets/Images/next.png" alt="" />
-              </a>
-            </li>
-            <li class="sidebar__item">
-              <a class="sidebar__link" href=".section__admission--CTA">
-                <span class="link__title">Admissions</span>
-                <p class="link__description">How to apply</p>
-                <img class="rightArrow" src="./Assets/Images/next.png" alt="" />
-              </a>
-            </li>
-            <li class="sidebar__item">
-              <a class="sidebar__link" href=".section__campus">
-                <span class="link__title">Faculty</span>
-                <p class="link__description">Meet our teachers</p>
-                <img class="rightArrow" src="./Assets/Images/next.png" alt="" />
-              </a>
-            </li>
-            <li class="sidebar__item">
-              <a class="sidebar__link" href=".section__schoollife">
-                <span class="link__title">Gallery</span>
-                <p class="link__description">Life on Campus</p>
-                <img class="rightArrow" src="./Assets/Images/next.png" alt="" />
-              </a>
-            </li>
-            <li class="sidebar__item">
-              <a class="sidebar__link" href=".section__notices">
-                <span class="link__title">Notices</span>
-                <p class="link__description">Latest updates</p>
-                <img class="rightArrow" src="./Assets/Images/next.png" alt="" />
-              </a>
-            </li>
-            <li class="sidebar__item">
-              <a class="sidebar__link" href=".section__map">
-                <span class="link__title">Contact</span>
-                <p class="link__description">Visit or Call us</p>
-                <img class="rightArrow" src="./Assets/Images/next.png" alt="" />
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="sidebar__footer">
-          <p class="eyebrow"><span>Admissions 2026-27</span></p>
-          <button class="apply__btn btn btn--primary">
-            Apply for Admission
-          </button>
-          <a class="call__link btn btn--outline" href="tel:+91-8376958340">
-            <img
-              class="btn__icon"
-              src="./Assets/Images/Icon _ phone.png"
-              alt=""
-            />
-            Call
-          </a>
-          <a
-            class="whatsapp__link btn btn--whatsapp"
-            href="https://wa.me/+918376958340"
-            target="_blank"
-            rel="noopener"
-          >
-            <img class="btn__icon" src="./Assets/Images/whatsapp.png" alt="" />
-            Whatsapp
-          </a>
-          <div class="sidebar__footer__links">
-            <p class="follow__text">Follow us</p>
-            <a
-              href="https://www.facebook.com/"
-              target="_blank"
-              aria-label="PKIC on Facebook"
-            >
-              <img
-                class="social__icon fb__icon"
-                src="./Assets/Images/Social_fb.png"
-                alt=""
-              />
-            </a>
-            <a
-              href="https://www.instagram.com/"
-              target="_blank"
-              aria-label="PKIC on Instagram"
-            >
-              <img
-                class="social__icon ig__icon"
-                src="./Assets/Images/Social_ig.png"
-                alt=""
-              />
-            </a>
-            <a
-              href="https://www.youtube.com/"
-              target="_blank"
-              aria-label="PKIC on YouTube"
-            >
-              <img
-                class="social__icon yt__icon"
-                src="./Assets/Images/Social_yt.png"
-                alt=""
-              />
-            </a>
-          </div>
-        </div>
-      </aside>
-
-      <div class="sidebar__backdrop backdrop__hide"></div>
-    </header>
+    <header class="header" data-include="components/navbar.html"></header>
 
     <main class="main" data-scroll data-scroll-enable-touch-speed>
-      <section class="section__hero section">
+      <section id="section__hero" class="section__hero section">
         <div class="hero__container section__container">
           <div class="hero__content">
             <p class="hero__eyebrow eyebrow">
@@ -386,7 +205,7 @@
         </div>
       </section>
 
-      <section class="section__academics section">
+      <section id="section__academics" class="section__academics section">
         <div class="academics__container section__container">
           <div class="academics__headings sections__headings">
             <p class="academics__kicker headings__kicker">ACADEMICS</p>
@@ -492,6 +311,7 @@
       </section>
 
       <section
+        id="section__message"
         class="section__message section"
         aria-labelledby="director-heading"
       >
@@ -524,7 +344,7 @@
         </div>
       </section>
 
-      <section class="section__campus section">
+      <section id="section__campus" class="section__campus section">
         <div class="campus__container section__container">
           <div class="campus__headings sections__headings">
             <p class="campus__kicker headings__kicker">CAMPUS</p>
@@ -608,7 +428,7 @@
         </div>
       </section>
 
-      <section class="section__schoollife section">
+      <section id="section__schoollife" class="section__schoollife section">
         <div class="schoollife__container section__container">
           <div class="schoollife__headings sections__headings">
             <p class="schoollife__kicker headings__kicker">SCHOOL LIFE</p>
@@ -664,7 +484,7 @@
         </div>
       </section>
 
-      <section class="section__notices section">
+      <section id="section__notices" class="section__notices section">
         <div class="notices__container section__container">
           <div class="notices__headings sections__headings">
             <p class="notices__kicker headings__kicker">NOTICES</p>
@@ -700,7 +520,10 @@
         </div>
       </section>
 
-      <section class="section__admission--CTA section">
+      <section
+        id="section__admission--CTA"
+        class="section__admission--CTA section"
+      >
         <h2 class="cta__heading">
           Admissions are open. <br />
           Secure your child's seat.
@@ -715,7 +538,7 @@
         >
       </section>
 
-      <section class="section__map section">
+      <section id="section__map" class="section__map section">
         <div class="map__container section__container">
           <div class="map__headings sections__headings">
             <p class="map__kicker headings__kicker">VISIT US</p>
@@ -743,136 +566,9 @@
       </section>
     </main>
 
-    <footer class="footer section">
-      <div class="footer__container section__container">
-        <div class="footer__header">
-          <div class="footer__branding">
-            <img
-              class="footer__logo"
-              src="./Assets/Images/PKIC_LOGO.png"
-              alt="PKIC LOGO"
-            />
-
-            <h2 class="footer__title">Public Kanya Inter College</h2>
-            <p class="footer__subtitle">Mirzapur, Uttar Pradesh</p>
-          </div>
-          <p class="school__description">
-            Quality education for the children of Mirzapur. <br />Admission are
-            open for 2026-27.
-          </p>
-          <a
-            class="btn btn--whatsapp"
-            href="https://wa.me/+918376958340"
-            target="_blank"
-            rel="noopener"
-          >
-            <img class="btn__icon" src="./Assets/Images/whatsapp.png" alt="" />
-            Chat on WhatsApp
-          </a>
-        </div>
-        <div class="footer__links">
-          <p class="links__header">QUICK LINKS</p>
-          <p class="links__header">EXPLORE</p>
-          <ul>
-            <li>
-              <a href="#" class="link">Home</a>
-            </li>
-            <li>
-              <a href="#" class="link">Faculty</a>
-            </li>
-            <li>
-              <a href="#" class="link">About us</a>
-            </li>
-            <li>
-              <a href="#" class="link">Gallery</a>
-            </li>
-            <li>
-              <a href="#" class="link">Academics</a>
-            </li>
-            <li>
-              <a href="#" class="link">Notices</a>
-            </li>
-            <li>
-              <a href="#" class="link">Admissions</a>
-            </li>
-            <li>
-              <a href="#" class="link">Contact</a>
-            </li>
-          </ul>
-        </div>
-        <div class="footer__contacts">
-          <p class="contact__title">VISIT & CONTACT</p>
-
-          <div class="contact__address contact">
-            <img class="icon" src="./Assets/Images/location.png" alt="" />
-            <p>Public Kanya Inter College, Mirzapur, Uttar Pradesh</p>
-          </div>
-          <div class="contact__phone contact">
-            <img class="icon" src="./Assets/Images/Icon _ phone.png" alt="" />
-            <p>+91 8376958340</p>
-          </div>
-          <div class="contact__email contact">
-            <img class="icon" src="./Assets/Images/mail.png" alt="" />
-            <p>principlepkic@gmail.com</p>
-          </div>
-          <div class="conatact__timing contact">
-            <img class="icon" src="./Assets/Images/time.png" alt="" />
-            <p>Mon-Sat, 7:00 AM - 2 PM</p>
-          </div>
-        </div>
-
-        <div class="footer__bottom">
-          <p class="copyright">&copy; 2026 Dhron Yadav</p>
-          <a
-            href="https://www.facebook.com/"
-            target="_blank"
-            aria-label="PKIC on Facebook"
-          >
-            <img
-              class="social__icon fb__icon"
-              src="./Assets/Images/Social_fb.png"
-              alt=""
-            />
-          </a>
-          <a
-            href="https://www.instagram.com/"
-            target="_blank"
-            aria-label="PKIC on Instagram"
-          >
-            <img
-              class="social__icon ig__icon"
-              src="./Assets/Images/Social_ig.png"
-              alt=""
-            />
-          </a>
-          <a
-            href="https://www.youtube.com/"
-            target="_blank"
-            aria-label="PKIC on YouTube"
-          >
-            <img
-              class="social__icon yt__icon"
-              src="./Assets/Images/Social_yt.png"
-              alt=""
-            />
-          </a>
-        </div>
-      </div>
-    </footer>
-
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.1/gsap.min.js"
-      integrity="sha512-VMHB/Dy1/3d+djJPdMhxbplbZgbfPNHy+yWCxB1MSrwUEcNE+gnviL/DwlGsh9wwobnRTiQc6ChK2ZoJamshXA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.1/ScrollTrigger.js"
-      integrity="sha512-4iHDKNbMvI3vN8PaG2om0+XXbn4BKjhdoi/Tnn8P7EBmqitPjNxGwtykyQOMcUGX+KbUQ0jHrBipOGfgE6Dkww=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-
-    <script type="module" src="./JS/main.js"></script>
+    <footer
+      class="footer section"
+      data-include="components/footer.html"
+    ></footer>
   </body>
 </html>
