@@ -3,7 +3,20 @@
 // import "./animate.js";
 import "./loader.js";
 
+// All eyebrows
 const eyebrow = document.querySelectorAll(".eyebrow");
+
+// All icons
+const allIcons = document.querySelectorAll(".icon");
+
+const handleIcons = (event, elem) => {
+  return () => {
+    elem.classList.add("animate__animated", "animate__rubberBand");
+    setTimeout(() => {
+      elem.classList.remove("animate__animated", "animate__rubberBand");
+    }, 1000);
+  };
+};
 
 const handleEyebrow = (event, elem) => {
   return () => {
@@ -152,3 +165,7 @@ async function init() {
 }
 
 init();
+
+allIcons.forEach((elem) => {
+  elem.addEventListener("click", handleIcons(event, elem));
+});

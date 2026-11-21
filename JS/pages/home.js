@@ -13,9 +13,6 @@ heading.style.opacity = 0;
 const subheading = document.querySelector(".hero__subheading");
 subheading.style.opacity = 0;
 
-// All icons
-const allIcons = document.querySelectorAll(".icon");
-
 // Statistics
 const statisticsSection = document.querySelector(".statistics");
 const allStats = document.querySelectorAll(".stat__num");
@@ -105,15 +102,6 @@ const animateCards = (cards) => {
 animateCards(facilityCards);
 animateCards(noticeCards);
 
-const handleIcons = (event, elem) => {
-  return () => {
-    elem.classList.add("animate__animated", "animate__rubberBand");
-    setTimeout(() => {
-      elem.classList.remove("animate__animated", "animate__rubberBand");
-    }, 1000);
-  };
-};
-
 const handleEyebrow = (event, elem) => {
   return () => {
     elem.classList.add("animate__animated", "animate__hinge");
@@ -125,8 +113,4 @@ const handleEyebrow = (event, elem) => {
 
 eyebrow.forEach((elem) => {
   elem.addEventListener("click", handleEyebrow(event, elem));
-});
-
-allIcons.forEach((elem) => {
-  elem.addEventListener("click", handleIcons(event, elem));
 });
