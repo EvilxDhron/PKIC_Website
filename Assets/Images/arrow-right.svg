@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="256"
+  height="256"
+  viewBox="0 0 256 256"
+  role="img"
+  aria-labelledby="arrow-title arrow-description"
+  style="--arrow-color: #16397a"
+>
+  <title id="arrow-title">Rounded right arrow</title>
+  <desc id="arrow-description">A solid, rounded triangular arrow pointing to the right.</desc>
+
+  <!-- Edit the colour variable in the SVG root style to recolour the arrow. -->
+  <path
+    class="arrow-shape"
+    fill="var(--arrow-color)"
+    d="
+      M 33.2,3.2
+      C 27.0,3.2 21.1,6.5 17.8,12.0
+      C 14.6,17.4 14.8,23.8 16.8,29.8
+      L 49.1,128
+      L 16.8,226.2
+      C 14.8,232.2 14.6,238.6 17.8,244.0
+      C 22.5,252.0 32.5,255.2 40.8,251.0
+      L 230.1,145.0
+      C 236.2,141.6 240.0,135.2 240.0,128
+      C 240.0,120.8 236.2,114.4 230.1,111.0
+      L 40.8,5.0
+      C 38.4,3.8 35.8,3.2 33.2,3.2
+      Z
+    "
+  />
+</svg>
