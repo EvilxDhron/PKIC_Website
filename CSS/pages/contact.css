@@ -26,16 +26,20 @@ body {
 
 #contact--hero__kicker {
   color: var(--color-accent);
+  transform: translateY(-50px);
+  opacity: 0;
 }
 
 #contact--hero__title {
   color: var(--color-primary);
   font-size: 1.75rem;
+  opacity: 0;
 }
 
 #contact--hero__intro {
-  font: 200 var(--size-subheading) var(--font-secondary);
+  font: 300 var(--size-subheading) var(--font-secondary);
   color: var(--color-text-on-dark);
+  opacity: 0;
 }
 
 /* Contact Actions Section */

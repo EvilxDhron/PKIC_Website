@@ -382,13 +382,19 @@ body.pkic-scroll-locked {
 }
 
 .subtitle {
-  animation: title-reveal 0.8s ease-out 0.7s both;
+  animation: title-reveal 0.6s ease-out 0.7s both;
 }
 
 .quote {
   animation: title-reveal 0.3s ease-out both;
   animation-timeline: view();
   animation-range: entry 0% entry 200%;
+}
+
+/* Contact Page Animations */
+
+.introReveal {
+  animation: title-reveal 0.1s linear forwards;
 }
 
 @keyframes title-reveal {
