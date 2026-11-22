@@ -1,6 +1,5 @@
 "use strict";
 
-// import "./animate.js";
 import "./loader.js";
 
 // All eyebrows

@@ -1,7 +1,7 @@
 "use strict";
 
+import "../animate.js";
 import "../main.js";
-// import "../loader.js";
 
 // loader
 const loader = document.querySelector("#pkic-loader");
