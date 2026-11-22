@@ -50,6 +50,7 @@
     ></script>
 
     <script defer type="module" src="/JS/main.js"></script>
+    <script defer type="module" src="/JS/pages/contact.js"></script>
   </head>
   <body>
     <!-- PKIC Mobile Loader -->
@@ -77,7 +78,7 @@
 
       <section id="section__contact--actions" class="section">
         <div class="contact--actions__container">
-          <a href="#" class="actions action__call">
+          <a href="tel:+91-8376958340" class="actions action__call">
             <img
               class="action__icon icon"
               src="/Assets/Images/phone-icon.svg"
@@ -91,7 +92,7 @@
               alt=""
             />
           </a>
-          <a href="#" class="action__whatsapp actions">
+          <a href="https://wa.me/918376958340" class="action__whatsapp actions">
             <img
               class="action__icon icon"
               src="/Assets/Images/whatsapp.png"
@@ -105,7 +106,10 @@
               alt=""
             />
           </a>
-          <a href="#" class="action__email actions">
+          <a
+            href="mailto:principlepkic@gmail.com"
+            class="action__email actions"
+          >
             <img
               class="action__icon icon"
               src="/Assets/Images/mail.svg"
@@ -132,6 +136,7 @@
               name="name"
               id="name"
               placeholder="Enter your name"
+              required
             />
             <label for="phone">Mobile number</label>
             <input
@@ -139,6 +144,7 @@
               name="phone"
               id="phone"
               placeholder="10-digit mobile number"
+              required
             />
             <label for="message">Message</label>
             <textarea
@@ -147,9 +153,37 @@
               rows="5"
               cols="35"
               placeholder="How can we help you?"
+              required
             ></textarea>
             <button class="btn btn--primary" type="submit">Send Message</button>
           </form>
+        </div>
+      </section>
+
+      <section id="section__map" class="section__map section">
+        <div class="map__container section__container">
+          <div class="map__headings sections__headings">
+            <p class="map__kicker headings__kicker">VISIT US</p>
+            <h2 class="map__title headings__title">Find us in Mirzapur</h2>
+          </div>
+
+          <div class="map__location">
+            <iframe
+              title="Map showing Public Kanya Inter College"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3533.607064159624!2d79.558438775663!3d27.667626327241887!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399fcf9832a040c7%3A0x471d7cfa45c6751!2sPublic%20Kanya%20Inter%20College!5e0!3m2!1sen!2sin!4v1793376697924!5m2!1sen!2sin"
+              width="300"
+              height="200"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+            ></iframe>
+          </div>
+
+          <div class="map__address">
+            <p class="address__city">Mirzapur, Uttar Pradesh</p>
+            <p class="address__contact">+91 8376958340 | MON-SAT - 7AM-2PM</p>
+          </div>
         </div>
       </section>
     </main>
