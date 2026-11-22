@@ -1,0 +1,212 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000">
+  <defs>
+    
+    <linearGradient id="goldMain" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F2D17B" />
+      <stop offset="35%" stop-color="#D4A345" />
+      <stop offset="70%" stop-color="#A87A29" />
+      <stop offset="100%" stop-color="#8A601C" />
+    </linearGradient>
+
+    <linearGradient id="goldHighlight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FCE39C" />
+      <stop offset="50%" stop-color="#D4A345" />
+      <stop offset="100%" stop-color="#9A6E24" />
+    </linearGradient>
+
+    <linearGradient id="goldShadow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9A6E24" />
+      <stop offset="100%" stop-color="#6B4812" />
+    </linearGradient>
+
+    <linearGradient id="goldRing" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E7C26B" />
+      <stop offset="50%" stop-color="#C8963A" />
+      <stop offset="100%" stop-color="#9E7124" />
+    </linearGradient>
+
+    
+    <path id="laurel-leaf" d="M 0,0 C -11,-15 -10,-34 0,-48 C 10,-34 11,-15 0,0 Z" />
+
+    
+    <path id="sun-ray" d="M -2.8,-44 L 0,-74 L 2.8,-44 Z" />
+
+    
+    <path id="bottom-text-arc" d="M 105,628 A 415,415 0 0,0 895,628" fill="none" />
+  </defs>
+
+  
+  <g id="badge-rings">
+    <circle cx="500" cy="500" r="495" fill="#FFFFFF" />
+    
+    <circle cx="500" cy="500" r="488" fill="none" stroke="url(#goldRing)" stroke-width="14" />
+    
+    <circle cx="500" cy="500" r="472" fill="none" stroke="#1E3F29" stroke-width="18" />
+    
+    <circle cx="500" cy="500" r="452" fill="none" stroke="url(#goldRing)" stroke-width="8" />
+  </g>
+
+  
+  <g id="laurel-left" fill="url(#goldMain)" stroke="url(#goldMain)">
+    
+    <path d="M 244,714 C 135,600 120,400 218,258" fill="none" stroke-width="7" stroke-linecap="round" />
+    
+    <use href="#laurel-leaf" transform="translate(216,678) rotate(-80) scale(1.05)" />
+    <use href="#laurel-leaf" transform="translate(216,678) rotate(-14) scale(1.0)" />
+
+    <use href="#laurel-leaf" transform="translate(182,622) rotate(-66) scale(1.1)" />
+    <use href="#laurel-leaf" transform="translate(182,622) rotate(4) scale(1.05)" />
+
+    <use href="#laurel-leaf" transform="translate(158,560) rotate(-52) scale(1.12)" />
+    <use href="#laurel-leaf" transform="translate(158,560) rotate(16) scale(1.08)" />
+
+    <use href="#laurel-leaf" transform="translate(146,494) rotate(-40) scale(1.12)" />
+    <use href="#laurel-leaf" transform="translate(146,494) rotate(28) scale(1.08)" />
+
+    <use href="#laurel-leaf" transform="translate(146,426) rotate(-28) scale(1.1)" />
+    <use href="#laurel-leaf" transform="translate(146,426) rotate(38) scale(1.05)" />
+
+    <use href="#laurel-leaf" transform="translate(159,362) rotate(-16) scale(1.05)" />
+    <use href="#laurel-leaf" transform="translate(159,362) rotate(50) scale(1.0)" />
+
+    <use href="#laurel-leaf" transform="translate(183,302) rotate(-4) scale(0.98)" />
+    <use href="#laurel-leaf" transform="translate(183,302) rotate(62) scale(0.95)" />
+
+    
+    <use href="#laurel-leaf" transform="translate(216,258) rotate(36) scale(1.0)" />
+  </g>
+
+  
+  <g id="laurel-right">
+    <use href="#laurel-left" transform="translate(1000,0) scale(-1,1)" />
+    <path d="M 756,714 Q 716,748 666,774" fill="none" stroke="url(#goldMain)" stroke-width="7" stroke-linecap="round" />
+  </g>
+
+  
+  <g id="letter-P">
+    
+    <path d="M 272,195
+         L 535,195
+         C 668,195 732,262 732,358
+         C 732,456 658,526 522,526
+         L 444,526
+         C 392,526 355,548 335,592
+         C 356,522 402,478 488,478
+         L 520,478
+         C 592,478 622,428 622,358
+         C 622,288 590,238 518,238
+         L 444,238
+         L 444,466
+         C 396,470 358,492 335,528
+         L 335,282
+         C 335,230 314,208 272,206 Z" fill="url(#goldHighlight)" />
+
+    
+    <path d="M 732,358
+         C 732,456 658,526 522,526
+         L 444,526
+         C 392,526 355,548 335,592
+         C 358,538 398,504 452,504
+         L 522,504
+         C 635,504 702,444 714,358 Z" fill="url(#goldShadow)" opacity="0.45" />
+
+    
+    <path d="M 444,536
+         L 444,686
+         C 444,734 468,756 512,758
+         L 512,768
+         L 270,768
+         L 270,758
+         C 314,756 335,734 335,686
+         L 335,606
+         C 356,562 392,538 444,536 Z" fill="url(#goldMain)" />
+
+    
+    <path d="M 388,546
+         L 388,686
+         C 388,732 362,756 312,758
+         L 270,758
+         L 270,768
+         L 512,768
+         L 512,758
+         C 468,756 444,734 444,686
+         L 444,536
+         C 424,537 405,540 388,546 Z" fill="url(#goldShadow)" opacity="0.35" />
+  </g>
+
+  
+  <g id="icon-sun" transform="translate(532,382)" fill="#B8872E" stroke="#B8872E">
+    
+    <path d="M -38,0 A 38,38 0 0,1 38,0" fill="none" stroke-width="5.5" stroke-linecap="round" />
+    
+    <use href="#sun-ray" transform="rotate(-90)" />
+    <use href="#sun-ray" transform="rotate(-72)" />
+    <use href="#sun-ray" transform="rotate(-54)" />
+    <use href="#sun-ray" transform="rotate(-36)" />
+    <use href="#sun-ray" transform="rotate(-18)" />
+    <use href="#sun-ray" transform="rotate(0)" />
+    <use href="#sun-ray" transform="rotate(18)" />
+    <use href="#sun-ray" transform="rotate(36)" />
+    <use href="#sun-ray" transform="rotate(54)" />
+    <use href="#sun-ray" transform="rotate(72)" />
+    <use href="#sun-ray" transform="rotate(90)" />
+  </g>
+
+  
+  <g id="icon-torch" fill="url(#goldMain)">
+    
+    <path d="M 285,590
+         C 264,586 254,568 258,548
+         C 260,536 268,530 272,520
+         C 276,512 282,506 287,502
+         C 285,516 294,524 301,534
+         C 312,550 312,576 294,588
+         C 291,590 288,590 285,590 Z" />
+    
+    <path d="M 284,584
+         C 274,580 271,568 276,558
+         C 279,552 284,548 286,542
+         C 288,550 295,556 296,566
+         C 297,576 291,583 284,584 Z" fill="#FFFFFF" />
+    
+    <rect x="251" y="595" width="68" height="10" rx="5" />
+    <path d="M 256,610 L 314,610 L 308,625 L 262,625 Z" />
+    
+    <path d="M 266,631 L 304,631 L 293,712 L 277,712 Z" />
+    
+    <circle cx="285" cy="724" r="7.5" />
+  </g>
+
+  
+  <g id="icon-book" fill="none" stroke="#B8872E" stroke-linecap="round" stroke-linejoin="round">
+    
+    <path d="M 473,618 L 473,708 L 538,708 Q 553,708 560,715 Q 567,708 582,708 L 647,708 L 647,618" stroke-width="6.5" />
+    
+    <path d="M 485,609 L 485,697 Q 528,694 560,706 Q 592,694 635,697 L 635,609" stroke-width="5" />
+    
+    <path d="M 497,598 Q 532,598 560,618 Q 588,598 623,598 L 623,688 Q 588,684 560,702 Q 532,684 497,688 Z" fill="#FFFFFF" stroke-width="5.5" />
+    
+    <line x1="560" y1="618" x2="560" y2="702" stroke-width="5.5" />
+
+    
+    <path d="M 510,620 Q 530,620 547,629" stroke-width="4" />
+    <path d="M 510,637 Q 530,637 547,646" stroke-width="4" />
+    <path d="M 510,654 Q 530,654 547,663" stroke-width="4" />
+    <path d="M 510,671 Q 530,671 547,680" stroke-width="4" />
+
+    
+    <path d="M 610,620 Q 590,620 573,629" stroke-width="4" />
+    <path d="M 610,637 Q 590,637 573,646" stroke-width="4" />
+    <path d="M 610,654 Q 590,654 573,663" stroke-width="4" />
+    <path d="M 610,671 Q 590,671 573,680" stroke-width="4" />
+  </g>
+
+  
+  <g id="curved-text">
+    <text fill="#A87A29" font-family="Georgia, &#39;Times New Roman&#39;, serif" font-size="68" font-weight="700" letter-spacing="4">
+      <textPath href="#bottom-text-arc" startOffset="50%" text-anchor="middle">
+        PKIC • MIRZAPUR
+      </textPath>
+    </text>
+  </g>
+</svg>

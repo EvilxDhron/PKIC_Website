@@ -1021,6 +1021,14 @@ a {
     grid-column: 2/3;
     grid-row: 2/3;
   }
+  .photo__5 {
+    grid-column: 1/1;
+    grid-row: 3/4;
+  }
+  .photo__6 {
+    grid-column: 2/3;
+    grid-row: 3/4;
+  }
 }
 .schoollife__btn {
   margin-top: 1.5rem;

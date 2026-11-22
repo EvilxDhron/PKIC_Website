@@ -152,10 +152,11 @@ body.pkic-scroll-locked {
 
   animation: pkic-pulse 2.2s ease-in-out infinite;
 
-  img {
+  svg {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    /* object-fit: cover; */
+    display: block;
   }
 }
 
