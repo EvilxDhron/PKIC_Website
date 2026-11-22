@@ -138,14 +138,21 @@
               type="text"
               name="name"
               id="name"
+              minlength="2"
+              maxlength="50"
+              autocomplete="name"
               placeholder="Enter your name"
               required
             />
             <label for="phone">Mobile number</label>
             <input
-              type="number"
+              type="tel"
               name="phone"
               id="phone"
+              maxlength="10"
+              minlength="10"
+              pattern="[6-9][0-9]{9}"
+              autocomplete="tel"
               placeholder="10-digit mobile number"
               required
             />
@@ -156,6 +163,7 @@
               rows="5"
               cols="35"
               placeholder="How can we help you?"
+              maxlength="300"
               required
             ></textarea>
             <button class="btn btn--primary" type="submit">Send Message</button>

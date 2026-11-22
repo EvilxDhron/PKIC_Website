@@ -9,6 +9,20 @@ const loader = document.querySelector("#pkic-loader");
 const contactTitle = document.querySelector("#contact--hero__title");
 const contactIntro = document.querySelector(".headings__intro");
 
+// Form Inputs
+const nameInput = document.querySelector("#name");
+const phoneInput = document.querySelector("#phone");
+
+// Allow only letters, spaces, apostrophes and hyphens in names
+nameInput.addEventListener("input", () => {
+  nameInput.value = nameInput.value.replace(/[^\p{L}\p{M} '\-]/gu, "");
+});
+
+// Allow only 10 digits in mobile number
+phoneInput.addEventListener("input", () => {
+  phoneInput.value = phoneInput.value.replace(/\D/g, "").slice(0, 10);
+});
+
 const loaderObserver = new IntersectionObserver(animateHero, {
   root: null,
   threshold: 0,
